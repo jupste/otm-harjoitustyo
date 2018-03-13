@@ -1,5 +1,5 @@
 # OTM-harjoitustyö
-Tämä on Ohjelmointimenetelmien harjoitustyön git repo.
+Tämä on Ohjelmointimenetelmien harjoitustyön git repo. Thread carefully..
 
 [komentorivi.txt](https://github.com/jupste/otm-harjoitustyo/blob/master/laskarit/viikko1/komentorivi.txt)
 
