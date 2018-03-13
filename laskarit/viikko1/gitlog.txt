@@ -1,4 +1,4 @@
-commit 0e05d8de001d7f1d62776187290389be53469ee3
+commit 0e05d8de001d7f1d62776187290389be53469ee3 
 Author: Jussi Steenari <jussi.steenari@helsinki.fi>
 Date:   Tue Mar 13 10:23:27 2018 +0200
 
@@ -24,7 +24,7 @@ commit a472a3ce9618ccd80520fef95be235f4202f31a8
 Author: Jussi Steenari <jussi.steenari@helsinki.fi>
 Date:   Tue Mar 13 10:17:26 2018 +0200
 
-    muutos
+   muutos
 
  eka.txt    | 3 ++-
  kolmas.txt | 3 +--
