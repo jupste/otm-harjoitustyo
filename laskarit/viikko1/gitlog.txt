@@ -1,0 +1,89 @@
+commit 0e05d8de001d7f1d62776187290389be53469ee3
+Author: Jussi Steenari <jussi.steenari@helsinki.fi>
+Date:   Tue Mar 13 10:23:27 2018 +0200
+
+    vipo
+
+ hakemisto/file1  | 1 -
+ hakemisto/file2  | 1 -
+ hakemisto/file22 | 1 +
+ 3 files changed, 1 insertion(+), 2 deletions(-)
+
+commit 8f73a583db0d4d8cde452424b176604a2aa88b45
+Author: Jussi Steenari <jussi.steenari@helsinki.fi>
+Date:   Tue Mar 13 10:20:57 2018 +0200
+
+    uudet
+
+ hakemisto/file1 | 1 +
+ hakemisto/file2 | 1 +
+ hakemisto/file3 | 0
+ 3 files changed, 2 insertions(+)
+
+commit a472a3ce9618ccd80520fef95be235f4202f31a8
+Author: Jussi Steenari <jussi.steenari@helsinki.fi>
+Date:   Tue Mar 13 10:17:26 2018 +0200
+
+    muutos
+
+ eka.txt    | 3 ++-
+ kolmas.txt | 3 +--
+ 2 files changed, 3 insertions(+), 3 deletions(-)
+
+commit d029c48866b32e383153e0bd5737abdcf9cdc7a8
+Author: Jussi Steenari <jussi.steenari@helsinki.fi>
+Date:   Tue Mar 13 10:14:48 2018 +0200
+
+    muutos
+
+ eka.txt      | 1 +
+ tiedosto.txt | 1 -
+ 2 files changed, 1 insertion(+), 1 deletion(-)
+
+commit d402082e7a88418834c4ab2cd444ccd52a9d5b30
+Author: Jussi Steenari <jussi.steenari@helsinki.fi>
+Date:   Tue Mar 13 10:13:51 2018 +0200
+
+    poisto
+
+ toinen.txt | 2 --
+ 1 file changed, 2 deletions(-)
+
+commit fb6fd0ecdec61a1ca4e1e87d8013d32166f0d533
+Author: Jussi Steenari <jussi.steenari@helsinki.fi>
+Date:   Tue Mar 13 10:07:34 2018 +0200
+
+    muutoksii
+
+ kolmas.txt | 1 +
+ toinen.txt | 1 +
+ 2 files changed, 2 insertions(+)
+
+commit a6f819fcc2c71ad66d2134b8b5d7f98599aa8a12
+Author: Jussi Steenari <jussi.steenari@helsinki.fi>
+Date:   Tue Mar 13 10:06:49 2018 +0200
+
+    kolmas
+
+ kolmas.txt | 1 +
+ 1 file changed, 1 insertion(+)
+
+commit 3a0c9873c24c4cf71c25a47b09059beef65cdb04
+Author: Jussi Steenari <jussi.steenari@helsinki.fi>
+Date:   Mon Mar 12 17:31:58 2018 +0200
+
+    muutos ja lisäys
+
+ tiedosto.txt | 1 +
+ toinen.txt   | 1 +
+ 2 files changed, 2 insertions(+)
+
+commit 6238bdc73690fcf163d62ea878e4790ac3850af5
+Author: Jussi Steenari <jussi.steenari@helsinki.fi>
+Date:   Mon Mar 12 17:28:57 2018 +0200
+
+    tiedosto.txt luotu
+
+ tiedosto.txt | 0
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+
