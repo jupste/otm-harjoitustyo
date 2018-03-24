@@ -9,6 +9,8 @@ Tämä on Ohjelmointimenetelmien harjoitustyön git repo. Thread carefully..
 
 [MaksukorttiTest](https://github.com/jupste/otm-harjoitustyo/blob/master/laskarit/viikko2/Unicafe/src/test/java/MaksukorttiTest.java)
 
+[Vaatimusmäärittely](https://github.com/jupste/otm-harjoitustyo/blob/master/dokumentointi/vaatimusmaarittely.txt)
+
 Conan! What is best in life?
 >To crush your enemies. See them driven before you and hear the lamentation of their women.
 ![Conan](http://cdn.themis-media.com/media/global/images/library/deriv/671/671579.jpg)
