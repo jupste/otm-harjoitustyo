@@ -31,14 +31,14 @@ public class ProjectileMaker {
         this.speeds.add(speed);
         return projectile;
     }
-    public boolean shoot(){
-        if(this.shootCounter>50){
-            shootCounter=0;
-            return true;
-        }
-        shootCounter++;
-        return false;
-    }
+//    public boolean shoot(){
+//        if(this.shootCounter>50){
+//            shootCounter=0;
+//            return true;
+//        }
+//        shootCounter++;
+//        return false;
+//    }
     
     public ArrayList<Speed> getSpeeds() {
         return speeds;
