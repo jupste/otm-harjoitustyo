@@ -66,7 +66,9 @@ public class ProjectileMakerTest {
         assertEquals(3.0, speed.getySpeed(), 0.0);
         speed=new Speed(KeyCode.D);
         assertEquals(3.0, speed.getxSpeed(), 0.0);
-        assertEquals(0.0, speed.getySpeed(), 0.0);        
+        assertEquals(0.0, speed.getySpeed(), 0.0);
+        speed=new Speed(KeyCode.O);
+        assertEquals(0.0, speed.getxSpeed(), 0.0);
     }
     
 }
