@@ -1,17 +1,28 @@
 # OTM-harjoitustyö
 Tämä on Ohjelmointimenetelmien harjoitustyön git repo. Thread carefully..
+|Viikko 1|
+------------ | -------------
+|[komentorivi.txt](https://github.com/jupste/otm-harjoitustyo/blob/master/laskarit/viikko1/komentorivi.txt)|
 
-[komentorivi.txt](https://github.com/jupste/otm-harjoitustyo/blob/master/laskarit/viikko1/komentorivi.txt)
+|[gitlog.txt](https://github.com/jupste/otm-harjoitustyo/blob/master/laskarit/viikko1/gitlog.txt)|
 
-[gitlog.txt](https://github.com/jupste/otm-harjoitustyo/blob/master/laskarit/viikko1/gitlog.txt)
+|Viikko 2|
+|[KassapaateTest](https://github.com/jupste/otm-harjoitustyo/blob/master/laskarit/viikko2/Unicafe/src/test/java/KassapaateTest.java)|
 
-[KassapaateTest](https://github.com/jupste/otm-harjoitustyo/blob/master/laskarit/viikko2/Unicafe/src/test/java/KassapaateTest.java)
+|[MaksukorttiTest](https://github.com/jupste/otm-harjoitustyo/blob/master/laskarit/viikko2/Unicafe/src/test/java/MaksukorttiTest.java)|
 
-[MaksukorttiTest](https://github.com/jupste/otm-harjoitustyo/blob/master/laskarit/viikko2/Unicafe/src/test/java/MaksukorttiTest.java)
+|Viikko 3|
+|[Luokkakaavio](https://github.com/jupste/otm-harjoitustyo/blob/master/laskarit/viikko3/Teht%C3%A4v%C3%A41 ja 2.png)|
+|[Machine luokan ekvenssikaavio](https://github.com/jupste/otm-harjoitustyo/blob/master/laskarit/viikko3/Teht%C3%A4v%C3%A43.png)|
+
 
 [Vaatimusmäärittely](https://github.com/jupste/otm-harjoitustyo/blob/master/dokumentointi/vaatimusmaarittely.md)
 
 [Työaikakirjanpito](https://github.com/jupste/otm-harjoitustyo/blob/master/dokumentointi/tyoaika.md)
+
+
+
+
 
 Conan! What is best in life?
 >To crush your enemies. See them driven before you and hear the lamentation of their women.
