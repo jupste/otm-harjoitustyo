@@ -1,22 +1,20 @@
 # OTM-harjoitustyö
 Tämä on Ohjelmointimenetelmien harjoitustyön git repo. Thread carefully..
-|Viikko 1   |
-|------------   | 
+|Viikko 1     |
+|------------     | 
 |[komentorivi.txt](https://github.com/jupste/otm-harjoitustyo/blob/master/laskarit/viikko1/komentorivi.txt)   |
-
 |[gitlog.txt](https://github.com/jupste/otm-harjoitustyo/blob/master/laskarit/viikko1/gitlog.txt)   |
 
 |Viikko 2   |
 |------------   |
 |[KassapaateTest](https://github.com/jupste/otm-harjoitustyo/blob/master/laskarit/viikko2/Unicafe/src/test/java/KassapaateTest.java)   |
-
 |[MaksukorttiTest](https://github.com/jupste/otm-harjoitustyo/blob/master/laskarit/viikko2/Unicafe/src/test/java/MaksukorttiTest.java)   |
 
 |Viikko 3   |
 |------------   |
 |[Luokkakaavio](https://github.com/jupste/otm-harjoitustyo/blob/master/laskarit/viikko3/uml.png)   |
-|[Machine luokan ekvenssikaavio](https://github.com/jupste/otm-harjoitustyo/blob/master/laskarit/viikko3/machine_seq.png)   |
-
+|[Machine luokan sekvenssikaavio](https://github.com/jupste/otm-harjoitustyo/blob/master/laskarit/viikko3/machine_seq.png)   |
+|[HSL sovelluksen sekvenssikaavio](https://github.com/jupste/otm-harjoitustyo/blob/master/laskarit/viikko3/HSL_seq.png)   |
 
 [Vaatimusmäärittely](https://github.com/jupste/otm-harjoitustyo/blob/master/dokumentointi/vaatimusmaarittely.md)
 
