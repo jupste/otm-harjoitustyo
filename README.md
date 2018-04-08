@@ -14,8 +14,8 @@ Tämä on Ohjelmointimenetelmien harjoitustyön git repo. Thread carefully..
 |Viikko 3   |
 |------------   |
 |[Luokkakaavio](https://github.com/jupste/otm-harjoitustyo/blob/master/laskarit/viikko3/uml.png)   |
-|[Machine luokan sekvenssikaavio](https://github.com/jupste/otm-harjoitustyo/blob/master/laskarit/viikko3/machine_seq.png)   |
-|[HSL sovelluksen sekvenssikaavio](https://github.com/jupste/otm-harjoitustyo/blob/master/laskarit/viikko3/HSL_seq.png)   |
+|[Machine luokan sekvenssikaavio](https://github.com/jupste/otm-harjoitustyo/blob/master/laskarit/viikko3/machine_Seq.png)   |
+|[HSL sovelluksen sekvenssikaavio](https://github.com/jupste/otm-harjoitustyo/blob/master/laskarit/viikko3/HSL_Seq.png)   |
 
 [Vaatimusmäärittely](https://github.com/jupste/otm-harjoitustyo/blob/master/dokumentointi/vaatimusmaarittely.md)
 
