@@ -1,4 +1,4 @@
-# Shoot 'em up pelin vaatimuusmäärittely:
+## Shoot 'em up pelin vaatimuusmäärittely:
 
 Tavoitteena on tehdä peli, jossa ammuskellaan erinäisiä vihollisia. Näkymä on ylhäältä päin kuvattu
 ja hahmoa ohjataan nuolinäppäimillä. Mahdollisesti myöhemmässä vaihseessa peliin lisätään 
