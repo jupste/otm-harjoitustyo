@@ -1,6 +1,8 @@
 # OTM-harjoitustyö
 Tämä on Ohjelmointimenetelmien harjoitustyön git repo. Thread carefully..
 
+# Laskuharjoitukset:
+
 |Viikko 1     |
 |------------     | 
 |[komentorivi.txt](https://github.com/jupste/otm-harjoitustyo/blob/master/laskarit/viikko1/komentorivi.txt)   |
@@ -17,10 +19,19 @@ Tämä on Ohjelmointimenetelmien harjoitustyön git repo. Thread carefully..
 |[Machine luokan sekvenssikaavio](https://github.com/jupste/otm-harjoitustyo/blob/master/laskarit/viikko3/machine_Seq.png)   |
 |[HSL sovelluksen sekvenssikaavio](https://github.com/jupste/otm-harjoitustyo/blob/master/laskarit/viikko3/HSL_Seq.png)   |
 
+# ShootEmUp peli
+
+## Dokumentointi
+
 [Vaatimusmäärittely](https://github.com/jupste/otm-harjoitustyo/blob/master/dokumentointi/vaatimusmaarittely.md)
 
 [Työaikakirjanpito](https://github.com/jupste/otm-harjoitustyo/blob/master/dokumentointi/tyoaika.md)
 
+[Käyttöohje](https://github.com/jupste/otm-harjoitustyo/blob/master/dokumentointi/kayttoohje.md)
+
+[Arkkitehtuurikuvaus](https://github.com/jupste/otm-harjoitustyo/blob/master/dokumentointi/arkkitehtuurikuvaus.md)
+
+[Testausdokumentti](https://github.com/jupste/otm-harjoitustyo/blob/master/dokumentointi/ktestausdokumentti.md)
 
 
 
