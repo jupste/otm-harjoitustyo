@@ -31,7 +31,7 @@ Tämä on Ohjelmointimenetelmien harjoitustyön git repo. Thread carefully..
 
 [Arkkitehtuurikuvaus](https://github.com/jupste/otm-harjoitustyo/blob/master/dokumentointi/arkkitehtuurikuvaus.md)
 
-[Testausdokumentti](https://github.com/jupste/otm-harjoitustyo/blob/master/dokumentointi/ktestausdokumentti.md)
+[Testausdokumentti](https://github.com/jupste/otm-harjoitustyo/blob/master/dokumentointi/testausdokumentti.md)
 
 
 
