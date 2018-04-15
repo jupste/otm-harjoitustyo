@@ -3,11 +3,13 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package shootemup;
+package shootemup.gui;
 
 import javafx.scene.Node;
 import javafx.scene.input.KeyCode;
 import javafx.scene.layout.Pane;
+import shootemup.ProjectileMaker;
+import shootemup.Speed;
 
 /**
  *

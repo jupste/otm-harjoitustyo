@@ -9,4 +9,5 @@ Työaikakirjanpito
 |3.4. |2| Ensimmäisen testin kirjoittaminen  |
 |4.4. |2| Muuttaminen maven projektiksi |
 |11.4 |3| Kuuntelijoiden luominen main menun nappeihin| 
-
+|13.4 |2| Lisää nappien hienosäätöä|
+|14.4 |2| Luokkien refaktoroimista, testien kirjoitusta|
