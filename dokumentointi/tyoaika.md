@@ -11,3 +11,4 @@ Työaikakirjanpito
 |11.4 |3| Kuuntelijoiden luominen main menun nappeihin| 
 |13.4 |2| Lisää nappien hienosäätöä|
 |14.4 |2| Luokkien refaktoroimista, testien kirjoitusta|
+|Yhteensä |19| | 

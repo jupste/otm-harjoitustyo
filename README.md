@@ -1,24 +1,3 @@
-# OTM-harjoitustyö
-Tämä on Ohjelmointimenetelmien harjoitustyön git repo. Thread carefully..
-
-# Laskuharjoitukset:
-
-|Viikko 1     |
-|------------     | 
-|[komentorivi.txt](https://github.com/jupste/otm-harjoitustyo/blob/master/laskarit/viikko1/komentorivi.txt)   |
-|[gitlog.txt](https://github.com/jupste/otm-harjoitustyo/blob/master/laskarit/viikko1/gitlog.txt)   |
-
-|Viikko 2   |
-|------------   |
-|[KassapaateTest](https://github.com/jupste/otm-harjoitustyo/blob/master/laskarit/viikko2/Unicafe/src/test/java/KassapaateTest.java)   |
-|[MaksukorttiTest](https://github.com/jupste/otm-harjoitustyo/blob/master/laskarit/viikko2/Unicafe/src/test/java/MaksukorttiTest.java)   |
-
-|Viikko 3   |
-|------------   |
-|[Luokkakaavio](https://github.com/jupste/otm-harjoitustyo/blob/master/laskarit/viikko3/uml.png)   |
-|[Machine luokan sekvenssikaavio](https://github.com/jupste/otm-harjoitustyo/blob/master/laskarit/viikko3/machine_Seq.png)   |
-|[HSL sovelluksen sekvenssikaavio](https://github.com/jupste/otm-harjoitustyo/blob/master/laskarit/viikko3/HSL_Seq.png)   |
-
 # ShootEmUp peli
 
 ## Dokumentointi
@@ -33,9 +12,35 @@ Tämä on Ohjelmointimenetelmien harjoitustyön git repo. Thread carefully..
 
 [Testausdokumentti](https://github.com/jupste/otm-harjoitustyo/blob/master/dokumentointi/testausdokumentti.md)
 
+## Komentorivitoiminnot
 
+# Ohjelman käynnistäminen
+Ennen ohjelman suoritusta tulee siirtyä oikeaan hakemistoon. Tämä tapahtuu juuressa kirjoittamalla komennot:
+> cd harjoitustyo
+> cd OTM-harjoitustyo
 
+Tämän jälkeen ohjelman voi suorittaa komennolla 
+> mvn compile exec:java -Dexec.MainClass=shootemup.ShootEmUp
 
-Conan! What is best in life?
->To crush your enemies. See them driven before you and hear the lamentation of their women.
-![Conan](http://cdn.themis-media.com/media/global/images/library/deriv/671/671579.jpg)
+# Ohjelman testaus
+
+Testauksen voi suorittaa komennolla
+> mvn test
+
+Testikattavuus puolestaan luodaan komennolla
+> mvn jacoco:report
+
+Kattavuus löytyy hakemistosta target/site/jacoco/index.html
+
+# JavaDoc
+Javadoc luodaan komennolla 
+> mvn javadoc:javadoc
+
+JavaDoc löytyy hakemistosta target/site/apidocs/index.html
+
+# .jar tiedoston generoiminen
+
+jar-tiedoston generoiminen onnistuu komennolla
+> mvn package
+
+se löytyy hakemistosta target/site/apidocs/index.html
