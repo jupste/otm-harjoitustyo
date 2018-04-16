@@ -48,9 +48,7 @@ public class GameUpdate {
     public AnimationTimer getTimer() {
         return timer;
     }
-    
-    
-    
+
     public void checkState(){
         for(Enemy e: enemies){
             for(Node p: maker.getProjectiles()){

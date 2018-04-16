@@ -56,8 +56,7 @@ public class ScreenLoader {
         instructions= new Button("Instructions");
         buttons.getChildren().addAll(start, hiscores, instructions);
         borderRoot.setCenter(buttons);
-        player=new Player("");
-        
+        player=new Player("");       
         hiscores.setOnAction(new EventHandler<ActionEvent>(){
                 @Override
                 public void handle(ActionEvent event) {
@@ -138,6 +137,5 @@ public class ScreenLoader {
         exit=new Button("Exit");
         borderRoot.setCenter(exit);
         return borderRoot;
-
     }
 }

@@ -17,6 +17,7 @@
 # Ohjelman käynnistäminen
 Ennen ohjelman suoritusta tulee siirtyä oikeaan hakemistoon. Tämä tapahtuu juuressa kirjoittamalla komennot:
 > cd harjoitustyo
+
 > cd OTM-harjoitustyo
 
 Tämän jälkeen ohjelman voi suorittaa komennolla 

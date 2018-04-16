@@ -26,20 +26,11 @@ public class ProjectileMaker {
         this.shootCounter=0;
     }
     public Node initProjectile(double x, double y, Speed speed){
-        Circle projectile= new Circle(x+10,y+10, 5, Color.RED);
+        Circle projectile= new Circle(x+10, y+10, 5, Color.RED);
         this.projectiles.add(projectile);
         this.speeds.add(speed);
         return projectile;
-    }
-//    public boolean shoot(){
-//        if(this.shootCounter>50){
-//            shootCounter=0;
-//            return true;
-//        }
-//        shootCounter++;
-//        return false;
-//    }
-    
+    } 
     public ArrayList<Speed> getSpeeds() {
         return speeds;
     }
