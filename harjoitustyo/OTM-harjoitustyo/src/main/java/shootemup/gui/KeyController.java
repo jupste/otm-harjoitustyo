@@ -8,8 +8,8 @@ package shootemup.gui;
 import javafx.scene.Node;
 import javafx.scene.input.KeyCode;
 import javafx.scene.layout.Pane;
-import shootemup.ProjectileMaker;
-import shootemup.Speed;
+import shootemup.domain.ProjectileMaker;
+import shootemup.domain.Speed;
 
 /**
  *

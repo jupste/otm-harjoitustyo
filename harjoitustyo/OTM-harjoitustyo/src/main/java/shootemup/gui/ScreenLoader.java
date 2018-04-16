@@ -5,6 +5,11 @@
  */
 package shootemup.gui;
 
+import shootemup.domain.Idler;
+import shootemup.domain.Player;
+import shootemup.domain.Enemy;
+import shootemup.domain.ProjectileMaker;
+import shootemup.domain.GameUpdate;
 import java.util.ArrayList;
 import java.util.Random;
 import javafx.animation.AnimationTimer;

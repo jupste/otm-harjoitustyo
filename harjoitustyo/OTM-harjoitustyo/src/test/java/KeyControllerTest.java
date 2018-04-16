@@ -14,7 +14,7 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
-import shootemup.ProjectileMaker;
+import shootemup.domain.ProjectileMaker;
 import shootemup.gui.KeyController;
 import shootemup.*;
 /**
