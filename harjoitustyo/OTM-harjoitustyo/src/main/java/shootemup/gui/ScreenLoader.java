@@ -49,6 +49,11 @@ public class ScreenLoader {
     private ArrayList<Enemy> enemies;
     private AnimationTimer timer;
     private GameUpdate update;
+    private Stage stage;
+
+    public Stage getStage() {
+        return stage;
+    }
     
     public ScreenLoader() {
     }
@@ -56,6 +61,7 @@ public class ScreenLoader {
         borderRoot=new BorderPane();
         borderRoot.setPrefSize(SIZE, SIZE);
         HBox buttons=new HBox();
+        this.stage=stage;
         start=new Button("Start the slaughter");
         hiscores=new Button("Hiscores");
         instructions= new Button("Instructions");
@@ -126,7 +132,7 @@ public class ScreenLoader {
         scores=new Label("Score: "+ 0);
         scores.relocate(900, 10);
         root.getChildren().add(scores);
-        update=new GameUpdate(maker, enemies, root, scores, player);
+        update=new GameUpdate(maker, enemies, root, scores, player, this);
         return root;
     }
     public Parent hiscoresScreen(){

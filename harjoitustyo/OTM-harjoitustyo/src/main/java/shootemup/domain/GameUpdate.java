@@ -9,8 +9,10 @@ import java.util.ArrayList;
 import java.util.Random;
 import javafx.animation.AnimationTimer;
 import javafx.scene.Node;
+import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.layout.Pane;
+import shootemup.gui.ScreenLoader;
 
 /**
  *
@@ -26,17 +28,18 @@ public class GameUpdate {
     private long counter;
     private Player player;
     private AnimationTimer timer;
+    private ScreenLoader loader;
     
-    public GameUpdate(ProjectileMaker maker, ArrayList<Enemy> enemies, Pane root, Label scores, Player player) {
+    public GameUpdate(ProjectileMaker maker, ArrayList<Enemy> enemies, Pane root, Label scores, Player player, ScreenLoader loader) {
         this.maker = maker;
         this.enemies = enemies;
         this.root = root;
         this.scores = scores;
-        this.rng=new Random();
-        this.score=0;
-        this.counter=0;
-        this.player=player;
-        this.timer=new AnimationTimer() {
+        this.rng = new Random();
+        this.score = 0;
+        this.counter = 0;
+        this.player = player;
+        this.timer = new AnimationTimer() {
             @Override
             public void handle(long now) {
                 onUpdate();
@@ -48,22 +51,33 @@ public class GameUpdate {
     public AnimationTimer getTimer() {
         return timer;
     }
-
     public void checkState(){
+        ArrayList<Node> projectileIndex = new ArrayList<>();
+        ArrayList<Enemy> enemyIndex = new ArrayList<>();
         for(Enemy e: enemies){
             for(Node p: maker.getProjectiles()){
                 if(e.getEnemy().getBoundsInParent().intersects(p.getBoundsInParent())){
-                    enemies.remove(e);
-                    maker.removeProjectile(p);
+                    enemyIndex.add(e);
+                    projectileIndex.add(p);
                     root.getChildren().remove(p);
                     root.getChildren().remove(e.getEnemy());
                     this.score++;
                     scores.setText("Score: "+Integer.toString(this.score));
                 }
             }
+            
             if(e.getEnemy().getBoundsInParent().intersects(player.getAvatar().getBoundsInParent())){
-                
+                //TODO: toimiva tapa lopettaa peli kun pelaaja osuu viholliseen
+                System.out.println("You died");
+//                timer.stop();
+//                loader.getStage().setScene(new Scene(loader.startingScreen(loader.getStage())));
             }
+        }
+        for(Node p: projectileIndex){
+            maker.removeProjectile(p);
+        }
+        for(Enemy enemy: enemyIndex){
+            enemies.remove(enemy);
         }
     }
     public void onUpdate(){
@@ -81,19 +95,19 @@ public class GameUpdate {
             enemies.add(drone);
             root.getChildren().add(drone.getEnemy());
         }
-        
         for(int i=0; i<projectiles.size(); i++){
             Node projectile= projectiles.get(i);
             Speed speed= speeds.get(i);
             projectile.setTranslateX(projectile.getTranslateX()+speed.getxSpeed());
             projectile.setTranslateY(projectile.getTranslateY()+speed.getySpeed());
-            checkState();
+            
         }
-        if(counter%100==0){
+        if(counter%100 == 0){
             for(Enemy e: enemies){
                 e.move();
             }
         }
+        checkState();
     }
 }
 
