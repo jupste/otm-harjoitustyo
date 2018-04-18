@@ -29,7 +29,7 @@ public class ShootEmUp extends Application {
     private ScreenLoader loader;    
     @Override
     public void start(Stage stage) {
-        loader=new ScreenLoader();
+        loader=new ScreenLoader(stage);
         stage.setScene(new Scene(loader.startingScreen(stage)));
         stage.show();
     }

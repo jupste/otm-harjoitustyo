@@ -19,6 +19,7 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.ButtonBar;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.BorderPane;
@@ -37,37 +38,45 @@ public class ScreenLoader {
     private static final int SIZE=1000;
     private Pane root;
     private BorderPane borderRoot;
-    private Player player;
-    static private long counter;
-    private KeyController keycontroller;
     private Button start;
     private Button hiscores;
     private Button instructions;
     private Button exit;
     private Label scores;
-    private ProjectileMaker maker;
-    private ArrayList<Enemy> enemies;
-    private AnimationTimer timer;
-    private GameUpdate update;
-    private Stage stage;
+    private Stage stage;    
+    private ButtonBar buttons;
+
+    public ScreenLoader(Stage stage) {
+        this.root = new Pane();
+        root.setPrefSize(SIZE, SIZE);
+        borderRoot= new BorderPane();
+        start= new Button();
+        hiscores= new Button();
+        instructions= new Button();
+        exit= new Button();
+        scores=new Label();
+        this.stage=stage;
+    }
 
     public Stage getStage() {
         return stage;
     }
     
-    public ScreenLoader() {
+    public Label getScores() {
+        return scores;
     }
+
     public Parent startingScreen(Stage stage){
         borderRoot=new BorderPane();
         borderRoot.setPrefSize(SIZE, SIZE);
-        HBox buttons=new HBox();
+        buttons=new ButtonBar();
         this.stage=stage;
         start=new Button("Start the slaughter");
         hiscores=new Button("Hiscores");
         instructions= new Button("Instructions");
-        buttons.getChildren().addAll(start, hiscores, instructions);
+        buttons.getButtons().addAll(start, hiscores, instructions);
         borderRoot.setCenter(buttons);
-        player=new Player("");       
+        ScreenLoader load=this;
         hiscores.setOnAction(new EventHandler<ActionEvent>(){
                 @Override
                 public void handle(ActionEvent event) {
@@ -95,44 +104,31 @@ public class ScreenLoader {
         start.setOnAction(new EventHandler<ActionEvent>() {
             @Override public void handle(ActionEvent e) {
             TextField namefield= new TextField();
-            buttons.getChildren().clear();
+            buttons.getButtons().clear();
             start.setText("READY!");
             Label error= new Label();
-            buttons.getChildren().addAll(namefield, start, error);
-
+            buttons.getButtons().addAll(namefield, start, error);
                 start.setOnAction(new EventHandler<ActionEvent>(){
                 @Override
                 public void handle(ActionEvent event) {
                     if(namefield.getText().length()>0){
                         stage.setScene(new Scene(createContent()));
-                        player.setName(namefield.getText());
-                        stage.getScene().setOnKeyPressed(e ->{
-                        keycontroller.processInput(player.getAvatar(), maker, e.getCode(), root);
-                        });
+                        GameUpdate session= new GameUpdate(load, namefield.getText()); 
                     }else{
                         error.setText("Must insert a name");
                         error.setTextFill(Color.RED);
                     }
+                    
             }});
             }});
-
-        counter=0;
         return borderRoot;
     }
     public Parent createContent(){
         root=new Pane();
         root.setPrefSize(SIZE, SIZE);
-        keycontroller=new KeyController();
-        maker=new ProjectileMaker();
-        enemies=new ArrayList<>();
-        root.getChildren().add(player.getAvatar());
-        Idler idler= new Idler(player.getAvatar());
-        enemies.add(idler);
-        root.getChildren().add(idler.getEnemy());
         scores=new Label("Score: "+ 0);
         scores.relocate(900, 10);
         root.getChildren().add(scores);
-        update=new GameUpdate(maker, enemies, root, scores, player, this);
         return root;
     }
     public Parent hiscoresScreen(){
@@ -141,6 +137,10 @@ public class ScreenLoader {
         exit=new Button("Exit");
         borderRoot.setCenter(exit);
         return borderRoot;
+    }
+
+    public Pane getRoot() {
+        return root;
     }
     public Parent instructionScreen(){
         borderRoot=new BorderPane();
