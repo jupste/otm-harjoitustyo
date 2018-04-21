@@ -5,17 +5,10 @@
  */
 package shootemup.gui;
 
-import shootemup.domain.Idler;
-import shootemup.domain.Player;
-import shootemup.domain.Enemy;
-import shootemup.domain.ProjectileMaker;
+
 import shootemup.domain.GameUpdate;
-import java.util.ArrayList;
-import java.util.Random;
-import javafx.animation.AnimationTimer;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
-import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -30,6 +23,7 @@ import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 import javafx.stage.Stage;
 import shootemup.*;
+import shootemup.dao.DatabaseManager;
 /**
  *
  * @author jussiste
@@ -45,7 +39,10 @@ public class ScreenLoader {
     private Label scores;
     private Stage stage;    
     private ButtonBar buttons;
+    private DatabaseManager dbManager; 
+    private Button clear= new Button();
 
+    
     public ScreenLoader(Stage stage) {
         this.root = new Pane();
         root.setPrefSize(SIZE, SIZE);
@@ -56,6 +53,7 @@ public class ScreenLoader {
         exit= new Button();
         scores=new Label();
         this.stage=stage;
+        dbManager= new DatabaseManager();
     }
 
     public Stage getStage() {
@@ -83,12 +81,19 @@ public class ScreenLoader {
                     stage.setScene(new Scene(hiscoresScreen()));
                     exit.setOnAction(new EventHandler<ActionEvent>(){
                         @Override
-                        public void handle(ActionEvent event) {
+                        public void handle(ActionEvent e) {
                             stage.setScene(new Scene(startingScreen(stage)));
                         }
                     });
+                    clear.setOnAction(new EventHandler<ActionEvent>() {
+                        @Override
+                        public void handle(ActionEvent e) {
+                            dbManager.clearTable();
+                        }
+                    });
+                    
                 };
-            });
+                });
         instructions.setOnAction(new EventHandler<ActionEvent>(){
             @Override
             public void handle(ActionEvent event) {
@@ -102,24 +107,25 @@ public class ScreenLoader {
             };
         });
         start.setOnAction(new EventHandler<ActionEvent>() {
-            @Override public void handle(ActionEvent e) {
-            TextField namefield= new TextField();
-            buttons.getButtons().clear();
-            start.setText("READY!");
-            Label error= new Label();
-            buttons.getButtons().addAll(namefield, start, error);
+            @Override 
+            public void handle(ActionEvent e) {
+                TextField namefield= new TextField();
+                buttons.getButtons().clear();
+                start.setText("READY!");
+                Label error= new Label();
+                buttons.getButtons().addAll(namefield, start, error);
+                
                 start.setOnAction(new EventHandler<ActionEvent>(){
-                @Override
-                public void handle(ActionEvent event) {
-                    if(namefield.getText().length()>0){
-                        stage.setScene(new Scene(createContent()));
-                        GameUpdate session= new GameUpdate(load, namefield.getText()); 
-                    }else{
-                        error.setText("Must insert a name");
-                        error.setTextFill(Color.RED);
-                    }
-                    
-            }});
+                    @Override
+                    public void handle(ActionEvent event) {
+                        if(namefield.getText().length()>0){
+                            stage.setScene(new Scene(createContent()));
+                            GameUpdate session= new GameUpdate(load, namefield.getText()); 
+                        }else{
+                            error.setText("Must insert a name");
+                            error.setTextFill(Color.RED);
+                        }                    
+                }});
             }});
         return borderRoot;
     }
@@ -135,7 +141,10 @@ public class ScreenLoader {
         borderRoot=new BorderPane();
         borderRoot.setPrefSize(SIZE, SIZE);
         exit=new Button("Exit");
-        borderRoot.setCenter(exit);
+        clear= new Button("Clear scores");
+        buttons.getButtons().clear();
+        buttons.getButtons().addAll(clear, exit);
+        borderRoot.setCenter(buttons);
         return borderRoot;
     }
 

@@ -17,6 +17,7 @@ import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 import javafx.stage.Stage;
+import shootemup.dao.DatabaseManager;
 import shootemup.gui.ScreenLoader;
 
 /**
@@ -27,9 +28,11 @@ import shootemup.gui.ScreenLoader;
 
 public class ShootEmUp extends Application {
     private ScreenLoader loader;    
+
     @Override
     public void start(Stage stage) {
         loader=new ScreenLoader(stage);
+   
         stage.setScene(new Scene(loader.startingScreen(stage)));
         stage.show();
     }

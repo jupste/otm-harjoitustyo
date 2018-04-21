@@ -12,4 +12,5 @@ Työaikakirjanpito
 |13.4 |2| Lisää nappien hienosäätöä|
 |14.4 |2| Luokkien refaktoroimista, testien kirjoitusta|
 |16.4.|1| Dokumenttien kirjoittelua ja refaktorointia| 
-|Yhteensä |19| | 
+|19.4.|3| Tietokantapuolen kehittelyä|
+|Yhteensä |25| | 
