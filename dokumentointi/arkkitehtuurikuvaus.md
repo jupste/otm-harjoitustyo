@@ -10,8 +10,9 @@ Scene-olion ja lataavat sen stageen. "Hiscores"-nappi vie käyttäjän hiscores 
 
 Ohjelman osien suhdetta kuvaava luokkakaavio:
 
-![luokkakaavio](https://yuml.me/c8860a70.png)
+![luokkakaavio](https://github.com/jupste/otm-harjoitustyo/blob/master/dokumentointi/luokkakaavio.png)
 
+Peli muodostuu pitkälti ScreenLoader ja GameUpdate olioiden varaan. ScreenLoader vastaa menujen vaihdoista ja pelialustan staattisista elementeistä kun taas GameUpdate-olio vastaa pelialustan elementtien liikkeistä. Molemmilla olioilla on pääsy samaan DatabaseManager-olioon, joka vastaa pelin tulosten tallentamisesta. 
 ## Päätoiminnalisuudet
 
 Seuraavaksi kuvataan sovelluksen keskeisten toimintojen päätoiminnalisuus sekvenssikaavioilla.
