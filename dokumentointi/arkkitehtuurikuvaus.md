@@ -19,11 +19,11 @@ Seuraavaksi kuvataan sovelluksen keskeisten toimintojen päätoiminnalisuus sekv
 ![kaynnistys](https://github.com/jupste/otm-harjoitustyo/blob/master/dokumentointi/kaynnistys.png)
 Kun ohjelma käynnistetään , main metodi luo uuden ScreenLoader olennon, jonka kautta suurin osa ohjelman toiminnallisuudesta tapahtuu. ScreenLoader saa yhdeksi parametrikseen main metodissa käytetyn Stage- olennon, sillä sen täytyy vaihtaa ruutua Pane- ja BorderPane-olentojen välillä.
 
-![hiscore](https://github.com/jupste/otm-harjoitustyo/blob/master/dokumentointi/Hiscore-taulukon_noutaminen.png)
+![hiscore](https://github.com/jupste/otm-harjoitustyo/blob/master/dokumentointi/hiscore.png)
 
 Kun luodaan ScreenLoader-olio, luodaan samalla automaattisesti myös tietokantoja hallinnoiva DatabaseManager. Kun käyttäjä painaa Hiscores-nappia, ScreenLoader lataa uuden ruudun. Samalla Screenloader-olio saa DatabaseManagerilta sen tietokannan sisällön ObservableList-muodossa, jonka se lisää ruudulle. 
 Kun käyttäjä painaa Clear-nappia, lähettää ScreenLoader DatabaseManagerille käskyn, että se tyhjää tietokantansa. 
 Jos käyttäjä painaa Exit-nappia, palautuu ohjelma alkuperäiseen ruutuun. 
 
-![introduction](https://github.com/jupste/otm-harjoitustyo/blob/master/dokumentointi/Hiscore-taulukon_noutaminen.png)
+![introduction](https://github.com/jupste/otm-harjoitustyo/blob/master/dokumentointi/ohjeet.png)
 Käyttöohjeen sisältävän sivun lataaminen tapahtuu hyvin pitkälti samalla periaattella, kuin hiscore sivun lataaminen.
