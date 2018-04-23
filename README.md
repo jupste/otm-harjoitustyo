@@ -18,7 +18,6 @@
 Ennen ohjelman suoritusta tulee siirtyä oikeaan hakemistoon. Tämä tapahtuu juuressa kirjoittamalla komennot:
 > cd harjoitustyo
 
-> cd OTM-harjoitustyo
 
 Tämän jälkeen ohjelman voi suorittaa komennolla 
 > mvn compile exec:java -Dexec.MainClass=shootemup.ShootEmUp
@@ -39,9 +38,16 @@ Javadoc luodaan komennolla
 
 JavaDoc löytyy hakemistosta target/site/apidocs/index.html
 
+# Checkstylen generoiminen
+
+Checkstyle luodaan komennolla 
+> mvn jxr:jxr checkstyle:checkstyle
+
+Dokumentti löytyy hakemistosta target/site/checkstyle.html
+
 # .jar tiedoston generoiminen
 
 jar-tiedoston generoiminen onnistuu komennolla
 > mvn package
 
-se löytyy hakemistosta target/site/apidocs/index.html
+se löytyy hakemistosta target/OTM-harjoitustyo-1.0-SNAPSHOT.jar
