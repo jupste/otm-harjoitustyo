@@ -49,8 +49,7 @@ public class ScreenLoader {
     private Stage stage;    
     private ButtonBar buttons;
     private DatabaseManager dbManager; 
-    private Button clear= new Button();
-
+    private Button clear;
     
     public ScreenLoader(Stage stage) {
         this.root = new Pane();
@@ -89,20 +88,7 @@ public class ScreenLoader {
         hiscores.setOnAction(new EventHandler<ActionEvent>(){
                 @Override
                 public void handle(ActionEvent event) {
-                    stage.setScene(new Scene(hiscoresScreen()));
-                    exit.setOnAction(new EventHandler<ActionEvent>(){
-                        @Override
-                        public void handle(ActionEvent e) {
-                            stage.setScene(new Scene(startingScreen(stage)));
-                        }
-                    });
-                    clear.setOnAction(new EventHandler<ActionEvent>() {
-                        @Override
-                        public void handle(ActionEvent e) {
-                            dbManager.clearTable();
-                        }
-                    });
-                    
+                    stage.setScene(new Scene(hiscoresScreen()));                        
                 };
                 });
         instructions.setOnAction(new EventHandler<ActionEvent>(){
@@ -161,6 +147,20 @@ public class ScreenLoader {
         TableColumn scores= new TableColumn("Score");
         scores.setCellValueFactory(new PropertyValueFactory("score"));
         table.getColumns().addAll(names, scores);
+        exit.setOnAction(new EventHandler<ActionEvent>(){
+                        @Override
+                        public void handle(ActionEvent e) {
+                            stage.setScene(new Scene(startingScreen(stage)));
+                        }
+                    });
+                    clear.setOnAction(new EventHandler<ActionEvent>() {
+                        @Override
+                        public void handle(ActionEvent e) {
+                            dbManager.clearTable(); 
+                            table.getColumns().clear();
+                        }
+                    });
+
         borderRoot.setLeft(table);
         table.setItems(scoreboard);
         buttons.getButtons().addAll(clear, exit);
