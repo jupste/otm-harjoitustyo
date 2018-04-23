@@ -20,6 +20,7 @@ import shootemup.gui.ScreenLoader;
  * @author jussiste
  */
 public class GameUpdate {
+
     private Random rng;
     private ProjectileMaker maker;
     private ArrayList<Enemy> enemies;
@@ -41,15 +42,19 @@ public class GameUpdate {
     public ProjectileMaker getMaker() {
         return maker;
     }
-    
-    public GameUpdate(ScreenLoader loader, String name) {
+
+    public GameUpdate(ScreenLoader loader) {
         this.maker = new ProjectileMaker();
         this.enemies = new ArrayList<Enemy>();
         this.rng = new Random();
         this.controller = new KeyController();
         this.score = 0;
         this.loader = loader;
-        loader.getStage().getScene().setOnKeyPressed(e ->{
+
+    }
+
+    public void startGame(String name) {
+        loader.getStage().getScene().setOnKeyPressed(e -> {
             controller.processInput(this, e.getCode());
         });
         this.player = new Player(name);
@@ -66,61 +71,63 @@ public class GameUpdate {
     public KeyController getController() {
         return controller;
     }
-    public void checkState(){
+
+    public void checkState() {
         ArrayList<Node> projectileIndex = new ArrayList<>();
         ArrayList<Enemy> enemyIndex = new ArrayList<>();
-        for(Enemy e: enemies){
-            for(Node p: maker.getProjectiles()){
-                if(e.getEnemy().getBoundsInParent().intersects(p.getBoundsInParent())){
+        for (Enemy e : enemies) {
+            for (Node p : maker.getProjectiles()) {
+                if (e.getEnemy().getBoundsInParent().intersects(p.getBoundsInParent())) {
                     enemyIndex.add(e);
                     projectileIndex.add(p);
                     loader.getRoot().getChildren().remove(p);
                     loader.getRoot().getChildren().remove(e.getEnemy());
                     this.score++;
-                    loader.getScores().setText("Score: "+Integer.toString(this.score));
+                    loader.getScores().setText("Score: " + Integer.toString(this.score));
                 }
-            }            
-            if(e.getEnemy().getBoundsInParent().intersects(player.getAvatar().getBoundsInParent())){
+            }
+            if (e.getEnemy().getBoundsInParent().intersects(player.getAvatar().getBoundsInParent())) {
                 System.out.println("You died");
                 timer.stop();
                 loader.getStage().setScene(new Scene(loader.startingScreen(loader.getStage())));
                 loader.getDbManager().insertIntoTable(player.getName(), score);
+                score = 0;
             }
         }
-        for(Node p: projectileIndex){
+        for (Node p : projectileIndex) {
             maker.removeProjectile(p);
         }
-        for(Enemy enemy: enemyIndex){
+        for (Enemy enemy : enemyIndex) {
             enemies.remove(enemy);
         }
     }
-    public void onUpdate(){
-        int r=rng.nextInt(1000);
+
+    public void onUpdate() {
+        int r = rng.nextInt(1000);
         counter++;
-        ArrayList<Node> projectiles=maker.getProjectiles();
-        ArrayList<Speed> speeds=maker.getSpeeds();
-        if(r==0 && enemies.size()<=15){
-            Idler idler= new Idler(player.getAvatar());
+        ArrayList<Node> projectiles = maker.getProjectiles();
+        ArrayList<Speed> speeds = maker.getSpeeds();
+        if (r == 0 && enemies.size() <= 15) {
+            Idler idler = new Idler(player.getAvatar());
             enemies.add(idler);
             loader.getRoot().getChildren().add(idler.getEnemy());
         }
-        if(r==1 && enemies.size()<15){
-            Drone drone= new Drone(player.getAvatar());
+        if (r == 1 && enemies.size() < 15) {
+            Drone drone = new Drone(player.getAvatar());
             enemies.add(drone);
             loader.getRoot().getChildren().add(drone.getEnemy());
         }
-        for(int i=0; i<projectiles.size(); i++){
-            Node projectile= projectiles.get(i);
-            Speed speed= speeds.get(i);
-            projectile.setTranslateX(projectile.getTranslateX()+speed.getxSpeed());
-            projectile.setTranslateY(projectile.getTranslateY()+speed.getySpeed());
+        for (int i = 0; i < projectiles.size(); i++) {
+            Node projectile = projectiles.get(i);
+            Speed speed = speeds.get(i);
+            projectile.setTranslateX(projectile.getTranslateX() + speed.getxSpeed());
+            projectile.setTranslateY(projectile.getTranslateY() + speed.getySpeed());
         }
-        if(counter%100 == 0){
-            for(Enemy e: enemies){
+        if (counter % 100 == 0) {
+            for (Enemy e : enemies) {
                 e.move();
             }
         }
         checkState();
     }
 }
-

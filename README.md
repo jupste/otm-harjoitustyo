@@ -1,4 +1,8 @@
 # ShootEmUp peli
+Pelissä pelaaja liikuttaa mustaa neliötä nuolinäppäimillä. Pelaaja voi käyttämällä WASD näppäimiä ampua vihollisia  joiden tuhoamisesta pelaaja saa pisteitä. Jos pelaaja osuu viholliseen niin peli loppuu. Pelin lopuksi pelaajan tulos tallennetaan hiscores-taulukkoon. 
+
+## Releaset
+[Viikko 5](https://github.com/jupste/otm-harjoitustyo/releases/tag/viikko5)
 
 ## Dokumentointi
 
@@ -50,4 +54,4 @@ Dokumentti löytyy hakemistosta target/site/checkstyle.html
 jar-tiedoston generoiminen onnistuu komennolla
 > mvn package
 
-se löytyy hakemistosta target/OTM-harjoitustyo-1.0-SNAPSHOT.jar
+se löytyy hakemistosta target/ShootEmUp-1.0.jar

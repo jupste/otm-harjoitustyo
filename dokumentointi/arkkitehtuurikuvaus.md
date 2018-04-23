@@ -11,3 +11,9 @@ Scene-olion ja lataavat sen stageen. "Hiscores"-nappi vie käyttäjän hiscores 
 Ohjelman osien suhdetta kuvaava luokkakaavio:
 
 ![luokkakaavio](https://yuml.me/c8860a70.png)
+
+## Päätoiminnalisuudet
+
+Seuraavaksi kuvataan sovelluksen keskeisten toimintojen päätoiminnalisuus sekvenssikaavioilla.
+
+![hiscore](https://github.com/jupste/otm-harjoitustyo/dokumentointi/Hiscore-taulukon_noutaminen.png)

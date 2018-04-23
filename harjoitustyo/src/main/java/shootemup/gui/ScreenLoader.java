@@ -5,7 +5,6 @@
  */
 package shootemup.gui;
 
-
 import static java.awt.SystemColor.text;
 import static java.lang.Integer.min;
 import java.util.ArrayList;
@@ -33,12 +32,14 @@ import javafx.stage.Stage;
 import shootemup.*;
 import shootemup.dao.DatabaseManager;
 import shootemup.dao.EntryObject;
+
 /**
  *
  * @author jussiste
  */
 public class ScreenLoader {
-    private static final int SIZE=1000;
+
+    private static final int SIZE = 1000;
     private Pane root;
     private BorderPane borderRoot;
     private Button start;
@@ -46,120 +47,127 @@ public class ScreenLoader {
     private Button instructions;
     private Button exit;
     private Label scores;
-    private Stage stage;    
+    private Stage stage;
     private ButtonBar buttons;
-    private DatabaseManager dbManager; 
+    private DatabaseManager dbManager;
+    private GameUpdate session;
     private Button clear;
-    
+
     public ScreenLoader(Stage stage) {
         this.root = new Pane();
         root.setPrefSize(SIZE, SIZE);
-        borderRoot= new BorderPane();
-        start= new Button();
-        hiscores= new Button();
-        instructions= new Button();
-        exit= new Button();
-        scores=new Label();
-        this.stage=stage;
-        dbManager= new DatabaseManager("jdbc:sqlite:hiscoreTable.db");
+        borderRoot = new BorderPane();
+        start = new Button();
+        hiscores = new Button();
+        instructions = new Button();
+        exit = new Button();
+        scores = new Label();
+        this.session=new GameUpdate(this);
+        this.stage = stage;
+        dbManager = new DatabaseManager("jdbc:sqlite:hiscoreTable.db");      
     }
 
     public Stage getStage() {
         return stage;
     }
-    
+
     public Label getScores() {
         return scores;
     }
 
-    public Parent startingScreen(Stage stage){
-        borderRoot=new BorderPane();
+    public Parent startingScreen(Stage stage) {
+        borderRoot = new BorderPane();
         borderRoot.setPrefSize(SIZE, SIZE);
-        buttons=new ButtonBar();
-        this.stage=stage;
-        start=new Button("Start the slaughter");
-        hiscores=new Button("Hiscores");
-        instructions= new Button("Instructions");
+        buttons = new ButtonBar();
+        this.stage = stage;
+        start = new Button("Start the slaughter");
+        hiscores = new Button("Hiscores");
+        instructions = new Button("Instructions");
         buttons.getButtons().addAll(start, hiscores, instructions);
         borderRoot.setCenter(buttons);
-        ScreenLoader load=this;
+        ScreenLoader load = this;
 
-        
-        hiscores.setOnAction(new EventHandler<ActionEvent>(){
-                @Override
-                public void handle(ActionEvent event) {
-                    stage.setScene(new Scene(hiscoresScreen()));                        
-                };
-                });
-        instructions.setOnAction(new EventHandler<ActionEvent>(){
+        hiscores.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                stage.setScene(new Scene(hiscoresScreen()));
+            }
+        ;
+        });
+        instructions.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
                 stage.setScene(new Scene(instructionScreen()));
-                exit.setOnAction(new EventHandler<ActionEvent>(){
+                exit.setOnAction(new EventHandler<ActionEvent>() {
                     @Override
                     public void handle(ActionEvent event) {
                         stage.setScene(new Scene(startingScreen(stage)));
                     }
                 });
-            };
+            }
+        ;
         });
         start.setOnAction(new EventHandler<ActionEvent>() {
-            @Override 
+            @Override
             public void handle(ActionEvent e) {
-                TextField namefield= new TextField();
+                TextField namefield = new TextField();
                 buttons.getButtons().clear();
                 start.setText("READY!");
-                Label error= new Label();
+                Label error = new Label();
                 buttons.getButtons().addAll(namefield, start, error);
-                
-                start.setOnAction(new EventHandler<ActionEvent>(){
+
+                start.setOnAction(new EventHandler<ActionEvent>() {
                     @Override
                     public void handle(ActionEvent event) {
-                        if(namefield.getText().length()>0){
+                        if (namefield.getText().length() > 0) {
                             stage.setScene(new Scene(createContent()));
-                            GameUpdate session= new GameUpdate(load, namefield.getText()); 
-                        }else{
+                            session.startGame(namefield.getText());
+                        } else {
                             error.setText("Must insert a name");
                             error.setTextFill(Color.RED);
-                        }                    
-                }});
-            }});
+                        }
+                    }
+                });
+            }
+        });
         return borderRoot;
     }
-    public Parent createContent(){
-        root=new Pane();
+
+    public Parent createContent() {
+        root = new Pane();
         root.setPrefSize(SIZE, SIZE);
-        scores=new Label("Score: "+ 0);
+        scores = new Label("Score: " + 0);
         scores.relocate(900, 10);
         root.getChildren().add(scores);
         return root;
     }
-    public Parent hiscoresScreen(){
-        borderRoot=new BorderPane();
+
+    public Parent hiscoresScreen() {
+        borderRoot = new BorderPane();
         borderRoot.setPrefSize(SIZE, SIZE);
-        exit=new Button("Exit");
-        clear= new Button("Clear scores");
+        exit = new Button("Exit");
+        clear = new Button("Clear scores");
         buttons.getButtons().clear();
-        ObservableList<EntryObject> scoreboard=dbManager.getScores();
-        TableView table=new TableView();
-        TableColumn names= new TableColumn("Name");
+        ObservableList<EntryObject> scoreboard = dbManager.getScores();
+        TableView table = new TableView();
+        TableColumn names = new TableColumn("Name");
         names.setCellValueFactory(new PropertyValueFactory("name"));
-        TableColumn scores= new TableColumn("Score");
+        TableColumn scores = new TableColumn("Score");
         scores.setCellValueFactory(new PropertyValueFactory("score"));
         table.getColumns().addAll(names, scores);
-        exit.setOnAction(new EventHandler<ActionEvent>(){
-                        @Override
-                        public void handle(ActionEvent e) {
-                            stage.setScene(new Scene(startingScreen(stage)));
-                        }
-                    });
-                    clear.setOnAction(new EventHandler<ActionEvent>() {
-                        @Override
-                        public void handle(ActionEvent e) {
-                            dbManager.clearTable(); 
-                            table.getColumns().clear();
-                        }
-                    });
+        exit.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent e) {
+                stage.setScene(new Scene(startingScreen(stage)));
+            }
+        });
+        clear.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent e) {
+                dbManager.clearTable();
+                table.getColumns().clear();
+            }
+        });
 
         borderRoot.setLeft(table);
         table.setItems(scoreboard);
@@ -175,10 +183,11 @@ public class ScreenLoader {
     public Pane getRoot() {
         return root;
     }
-    public Parent instructionScreen(){
-        borderRoot=new BorderPane();
+
+    public Parent instructionScreen() {
+        borderRoot = new BorderPane();
         borderRoot.setPrefSize(SIZE, SIZE);
-        exit=new Button("Exit");
+        exit = new Button("Exit");
         borderRoot.setCenter(exit);
         return borderRoot;
     }
