@@ -16,4 +16,4 @@ Ohjelman osien suhdetta kuvaava luokkakaavio:
 
 Seuraavaksi kuvataan sovelluksen keskeisten toimintojen päätoiminnalisuus sekvenssikaavioilla.
 
-![hiscore](https://github.com/jupste/otm-harjoitustyo/dokumentointi/Hiscore-taulukon_noutaminen.png)
+![hiscore](https://github.com/jupste/otm-harjoitustyo/blob/master/dokumentointi/Hiscore-taulukon_noutaminen.png)
