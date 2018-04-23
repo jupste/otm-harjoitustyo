@@ -79,13 +79,12 @@ public class GameUpdate {
                     this.score++;
                     loader.getScores().setText("Score: "+Integer.toString(this.score));
                 }
-            }
-            
+            }            
             if(e.getEnemy().getBoundsInParent().intersects(player.getAvatar().getBoundsInParent())){
-                //TODO: toimiva tapa lopettaa peli kun pelaaja osuu viholliseen
                 System.out.println("You died");
                 timer.stop();
                 loader.getStage().setScene(new Scene(loader.startingScreen(loader.getStage())));
+                loader.getDbManager().insertIntoTable(player.getName(), score);
             }
         }
         for(Node p: projectileIndex){

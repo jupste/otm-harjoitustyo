@@ -6,6 +6,11 @@
 package shootemup.gui;
 
 
+import static java.awt.SystemColor.text;
+import static java.lang.Integer.min;
+import java.util.ArrayList;
+import javafx.beans.property.ReadOnlyListWrapper;
+import javafx.collections.ObservableList;
 import shootemup.domain.GameUpdate;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -14,7 +19,10 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ButtonBar;
 import javafx.scene.control.Label;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
@@ -24,6 +32,7 @@ import javafx.scene.shape.Rectangle;
 import javafx.stage.Stage;
 import shootemup.*;
 import shootemup.dao.DatabaseManager;
+import shootemup.dao.EntryObject;
 /**
  *
  * @author jussiste
@@ -75,6 +84,8 @@ public class ScreenLoader {
         buttons.getButtons().addAll(start, hiscores, instructions);
         borderRoot.setCenter(buttons);
         ScreenLoader load=this;
+
+        
         hiscores.setOnAction(new EventHandler<ActionEvent>(){
                 @Override
                 public void handle(ActionEvent event) {
@@ -143,9 +154,22 @@ public class ScreenLoader {
         exit=new Button("Exit");
         clear= new Button("Clear scores");
         buttons.getButtons().clear();
+        ObservableList<EntryObject> scoreboard=dbManager.getScores();
+        TableView table=new TableView();
+        TableColumn names= new TableColumn("Name");
+        names.setCellValueFactory(new PropertyValueFactory("name"));
+        TableColumn scores= new TableColumn("Score");
+        scores.setCellValueFactory(new PropertyValueFactory("score"));
+        table.getColumns().addAll(names, scores);
+        borderRoot.setLeft(table);
+        table.setItems(scoreboard);
         buttons.getButtons().addAll(clear, exit);
         borderRoot.setCenter(buttons);
         return borderRoot;
+    }
+
+    public DatabaseManager getDbManager() {
+        return dbManager;
     }
 
     public Pane getRoot() {
