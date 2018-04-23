@@ -19,12 +19,12 @@ public class DatabaseManager {
     private Connection connection;
     private Statement statement;
     
-    public DatabaseManager() {
+    public DatabaseManager(String dest) {
         this.connection = null;
         this.statement=null;
         try{
             Class.forName("org.sqlite.JDBC");
-            connection = DriverManager.getConnection("jdbc:sqlite:hiscoreTable.db");
+            connection = DriverManager.getConnection(dest);
             connection.setAutoCommit(false);
             statement= connection.createStatement();
             String insert="CREATE TABLE IF NOT EXISTS SCORES " + "(NAME TEXT NOT NULL UNIQUE, SCORE INT NOT NULL);";

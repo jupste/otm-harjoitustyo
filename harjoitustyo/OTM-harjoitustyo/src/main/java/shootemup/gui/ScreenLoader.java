@@ -62,7 +62,7 @@ public class ScreenLoader {
         exit= new Button();
         scores=new Label();
         this.stage=stage;
-        dbManager= new DatabaseManager();
+        dbManager= new DatabaseManager("jdbc:sqlite:hiscoreTable.db");
     }
 
     public Stage getStage() {
