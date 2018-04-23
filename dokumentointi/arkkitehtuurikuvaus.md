@@ -17,6 +17,7 @@ Ohjelman osien suhdetta kuvaava luokkakaavio:
 Seuraavaksi kuvataan sovelluksen keskeisten toimintojen päätoiminnalisuus sekvenssikaavioilla.
 
 ![kaynnistys](https://github.com/jupste/otm-harjoitustyo/blob/master/dokumentointi/kaynnistys.png)
+
 Kun ohjelma käynnistetään , main metodi luo uuden ScreenLoader olennon, jonka kautta suurin osa ohjelman toiminnallisuudesta tapahtuu. ScreenLoader saa yhdeksi parametrikseen main metodissa käytetyn Stage- olennon, sillä sen täytyy vaihtaa ruutua Pane- ja BorderPane-olentojen välillä.
 
 ![hiscore](https://github.com/jupste/otm-harjoitustyo/blob/master/dokumentointi/hiscore.png)
@@ -26,4 +27,5 @@ Kun käyttäjä painaa Clear-nappia, lähettää ScreenLoader DatabaseManagerill
 Jos käyttäjä painaa Exit-nappia, palautuu ohjelma alkuperäiseen ruutuun. 
 
 ![introduction](https://github.com/jupste/otm-harjoitustyo/blob/master/dokumentointi/ohjeet.png)
+
 Käyttöohjeen sisältävän sivun lataaminen tapahtuu hyvin pitkälti samalla periaattella, kuin hiscore sivun lataaminen.
