@@ -59,6 +59,9 @@ public class GameUpdate {
         });
         this.player = new Player(name);
         this.loader.getRoot().getChildren().add(player.getAvatar());
+        Idler idler=new Idler(player.getAvatar());
+        enemies.add(idler);
+        this.loader.getRoot().getChildren().add(idler.getEnemy());
         this.timer = new AnimationTimer() {
             @Override
             public void handle(long now) {

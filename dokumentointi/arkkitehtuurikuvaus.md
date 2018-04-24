@@ -12,7 +12,7 @@ Ohjelman osien suhdetta kuvaava luokkakaavio:
 
 ![luokkakaavio](https://github.com/jupste/otm-harjoitustyo/blob/master/dokumentointi/luokkakaavio.png)
 
-Peli muodostuu pitkälti ScreenLoader ja GameUpdate olioiden varaan. ScreenLoader vastaa menujen vaihdoista ja pelialustan staattisista elementeistä kun taas GameUpdate-olio vastaa pelialustan elementtien liikkeistä. Molemmilla olioilla on pääsy samaan DatabaseManager-olioon, joka vastaa pelin tulosten tallentamisesta. 
+Peli muodostuu pitkälti ScreenLoader ja GameUpdate olioiden varaan. ScreenLoader vastaa menujen vaihdoista ja pelialustan staattisista elementeistä kun taas GameUpdate-olio vastaa pelialustan elementtien liikkeistä. GameUpdate olennon kautta tapahtuu myös kaikki näppäimistökomennot. Molemmilla olioilla on pääsy samaan DatabaseManager-olioon, joka vastaa pelin tulosten tallentamisesta. 
 ## Päätoiminnalisuudet
 
 Seuraavaksi kuvataan sovelluksen keskeisten toimintojen päätoiminnalisuus sekvenssikaavioilla.
@@ -30,3 +30,7 @@ Jos käyttäjä painaa Exit-nappia, palautuu ohjelma alkuperäiseen ruutuun.
 ![introduction](https://github.com/jupste/otm-harjoitustyo/blob/master/dokumentointi/ohjeet.png)
 
 Käyttöohjeen sisältävän sivun lataaminen tapahtuu hyvin pitkälti samalla periaattella, kuin hiscore sivun lataaminen.
+
+![pelaaminen](https://github.com/jupste/otm-harjoitustyo/blob/master/dokumentointi/pelaaminen.png)
+
+Varsinainen peli alkaa kun pelaaja painaa Start-nappia. Tällöin valikko muuttuu siten, että siihen ilmestyy tekstikenttä sekä uusi Ready-nappula. Jos Ready-nappulaa painaa, ilman että tekstikentässä on tekstiä, näyttää se virheilmoituksen. Kun pelaaja painaa Ready-nappia ei-tyhjällä tekstikentällä, luo ScreenLoader-olio uuden peliä varten käytettävän Pane-olion ja siirtää ohjelman hallinnan GameUpdate-oliolle. Kun pelaaja painaa nuolinäppäintä, GameUpdaten KeyController-olio käsittelee sen siten, että pelaajan hahmo liikkuu oikeaan suuntaan. Jos pelaaja puolestaan painaa WASD-näppäintä, KeyController käskee ProjectileMakerin luomaan ammus, joka kulkee WASD näppäimen osoittamaan suuntaan.
