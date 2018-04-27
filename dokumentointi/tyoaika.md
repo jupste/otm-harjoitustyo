@@ -14,4 +14,6 @@ Työaikakirjanpito
 |16.4.|1| Dokumenttien kirjoittelua ja refaktorointia| 
 |19.4.|3| Tietokantapuolen kehittelyä|
 |23.4.|3| Tietokannan testien luonti |
-|Yhteensä |28| | 
+|25.4.|3| PowerUp luokan luonti|
+|26.4.|3| Testien kirjoittaminen ja Javadocien luonti |
+|Yhteensä |34| | 

@@ -18,12 +18,22 @@ import java.util.List;
 public class ProjectileMaker {
     private ArrayList<Speed> speeds;
     private ArrayList<Node> projectiles;
-    private int shootCounter;
+    private int ammo;
     
     public ProjectileMaker() {
         this.speeds = new ArrayList<>();
         this.projectiles=new ArrayList<>();
-        this.shootCounter=0;
+        this.ammo=50;
+    }
+    public boolean hasAmmo(){
+        if(this.ammo>0){
+            this.ammo--;
+            return true;
+        }
+        return false;
+    }
+    public void reload(int reload){
+        this.ammo+=reload;
     }
     public Node initProjectile(double x, double y, Speed speed){
         Circle projectile= new Circle(x+10, y+10, 5, Color.RED);
@@ -36,6 +46,10 @@ public class ProjectileMaker {
     }
     public ArrayList<Node> getProjectiles() {
         return projectiles;
+    }
+
+    public int getAmmo() {
+        return ammo;
     }
     public void removeProjectile(Node n){
         int index=projectiles.indexOf(n);

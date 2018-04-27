@@ -10,7 +10,6 @@ import static java.lang.Integer.min;
 import java.util.ArrayList;
 import javafx.beans.property.ReadOnlyListWrapper;
 import javafx.collections.ObservableList;
-import shootemup.domain.GameUpdate;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.Parent;
@@ -47,6 +46,7 @@ public class ScreenLoader {
     private Button instructions;
     private Button exit;
     private Label scores;
+    private Label ammo;
     private Stage stage;
     private ButtonBar buttons;
     private DatabaseManager dbManager;
@@ -66,7 +66,7 @@ public class ScreenLoader {
         this.stage = stage;
         dbManager = new DatabaseManager("jdbc:sqlite:hiscoreTable.db");      
     }
-
+    
     public Stage getStage() {
         return stage;
     }
@@ -136,10 +136,16 @@ public class ScreenLoader {
     public Parent createContent() {
         root = new Pane();
         root.setPrefSize(SIZE, SIZE);
+        ammo=new Label("Ammo: " + 50);
         scores = new Label("Score: " + 0);
+        ammo.relocate(900, 30);
         scores.relocate(900, 10);
-        root.getChildren().add(scores);
+        root.getChildren().addAll(scores, ammo);
         return root;
+    }
+
+    public Label getAmmo() {
+        return ammo;
     }
 
     public Parent hiscoresScreen() {

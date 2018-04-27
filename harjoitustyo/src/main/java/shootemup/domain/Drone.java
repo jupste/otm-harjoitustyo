@@ -8,6 +8,7 @@ package shootemup.domain;
 import java.util.Random;
 import javafx.scene.Node;
 import javafx.scene.paint.Color;
+import javafx.scene.shape.Circle;
 import javafx.scene.shape.Rectangle;
 
 /**
@@ -25,19 +26,26 @@ public class Drone implements Enemy{
 
     public Drone(Node player) {
         this.rng=new Random();
-        this.direction= rng.nextInt(4);
+        this.direction= 0;
         int x=rng.nextInt(50)*20;
         int y=rng.nextInt(50)*20;
+        Circle mold= new Circle(100);
+        mold.setTranslateY(y);
+        mold.setTranslateX(x);
+        while(mold.getBoundsInParent().intersects(player.getBoundsInParent())){
+            x=rng.nextInt(50)*20;
+            y=rng.nextInt(50)*20;
+            mold.setTranslateY(y);
+            mold.setTranslateX(x);
+        }
         this.enemy = new Rectangle(20, 20, Color.PURPLE);
         this.enemy.setTranslateY(y);
         this.enemy.setTranslateX(x);
     }
-    
     @Override
-    public void move() {
-        int random=rng.nextInt(10);
-        if(random==0){
-            direction=rng.nextInt(4);
+    public void move(int dir) {
+        if(dir==0){
+            direction=(direction+1)%4;
         }
         switch(direction){
             case 0:

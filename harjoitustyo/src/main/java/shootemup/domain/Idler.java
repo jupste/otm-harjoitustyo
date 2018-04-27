@@ -8,6 +8,7 @@ package shootemup.domain;
 import java.util.Random;
 import javafx.scene.Node;
 import javafx.scene.paint.Color;
+import javafx.scene.shape.Circle;
 import javafx.scene.shape.Rectangle;
 
 /**
@@ -21,6 +22,15 @@ public class Idler implements Enemy{
         this.rng=new Random();
         int x=rng.nextInt(50)*20;
         int y=rng.nextInt(50)*20;
+        Circle mold= new Circle(100);
+        mold.setTranslateY(y);
+        mold.setTranslateX(x);
+        while(mold.getBoundsInParent().intersects(player.getBoundsInParent())){
+            x=rng.nextInt(50)*20;
+            y=rng.nextInt(50)*20;
+            mold.setTranslateY(y);
+            mold.setTranslateX(x);
+        }
         this.enemy = new Rectangle(20, 20, Color.GREEN);
         this.enemy.setTranslateY(y);
         this.enemy.setTranslateX(x);
@@ -30,8 +40,7 @@ public class Idler implements Enemy{
         return enemy;
     }
     @Override
-    public void move() {
-        int move= rng.nextInt(4);
+    public void move(int move) {
         switch(move){
             case 0:
                 if(this.enemy.getTranslateY()>0){

@@ -3,7 +3,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.mycompany</groupId>
     <artifactId>ShootEmUp</artifactId>
-    <version>1.0</version>
+    <version>1.0</version>  
     <packaging>jar</packaging>
     <dependencies>
         <dependency>
@@ -49,6 +49,11 @@
                 <groupId>org.jacoco</groupId>
                 <artifactId>jacoco-maven-plugin</artifactId>
                 <version>0.8.0</version>
+                <configuration>
+                    <excludes>
+                        <exclude>shootemup/gui/*</exclude>
+                    </excludes>
+                </configuration>  
                 <executions>
                     <execution>
                         <id>default-prepare-agent</id>
