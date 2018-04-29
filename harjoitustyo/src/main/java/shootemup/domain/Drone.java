@@ -17,13 +17,13 @@ import javafx.scene.shape.Rectangle;
  */
 public class Drone implements Enemy{
 
-    public Node getEnemy() {
-        return enemy;
-    }
-    Random rng;
-    int direction;
-    Node enemy;
-
+    private Random rng;
+    private int direction;
+    private Node enemy;
+     /**
+     * Constructor for Drone class. Creates an enemy and positions it to a random place on a board.
+     * @param player used so that the enemy doesn't spawn directly on top of player.
+     */
     public Drone(Node player) {
         this.rng=new Random();
         this.direction= 0;
@@ -68,6 +68,11 @@ public class Drone implements Enemy{
                     this.enemy.setTranslateX(this.enemy.getTranslateX()+15);
                 }
         }
+    }
+        
+    @Override
+    public Node getEnemy() {
+        return enemy;
     }
     
 }

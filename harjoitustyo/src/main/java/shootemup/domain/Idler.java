@@ -16,8 +16,13 @@ import javafx.scene.shape.Rectangle;
  * @author jussiste
  */
 public class Idler implements Enemy{
-    Node enemy;
-    Random rng;
+    private Node enemy;
+    private Random rng;
+    
+    /**
+     * Constructor for Idler class. Creates an enemy and positions it to a random place on a board.
+     * @param player used so that the enemy doesn't spawn directly on top of player.
+     */
     public Idler(Node player) {
         this.rng=new Random();
         int x=rng.nextInt(50)*20;

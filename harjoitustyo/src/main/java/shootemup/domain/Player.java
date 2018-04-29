@@ -21,8 +21,8 @@ public class Player{
         this.name = name;
         this.score=0;
         this.avatar= new Rectangle(20, 20 , Color.BLACK);
-        avatar.setTranslateY(300);
-        avatar.setTranslateX(300);
+        avatar.setTranslateY(500);
+        avatar.setTranslateX(500);
     }
 
     public int getScore() {
