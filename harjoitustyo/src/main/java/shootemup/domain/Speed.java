@@ -15,6 +15,10 @@ public class Speed {
     private double xSpeed;
     private double ySpeed;
 
+    /**
+     * Constructor for Speed class. Used to keep track of vectors of projectiles in ProjectileMaker.
+     * @param key pressed key determines the vector of projectile.
+     */
     public Speed(KeyCode key) {
         switch(key){
             case W:

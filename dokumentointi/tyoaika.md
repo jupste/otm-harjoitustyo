@@ -16,4 +16,5 @@ Työaikakirjanpito
 |23.4.|3| Tietokannan testien luonti |
 |25.4.|3| PowerUp luokan luonti|
 |26.4.|3| Testien kirjoittaminen ja Javadocien luonti |
-|Yhteensä |34| | 
+|29.4.|1| Javadocien uudelleen luonti kun unohdin pushata ja vahingossa ylikirjoitin paikallisen tiedoston...|
+|Yhteensä |35| | 
