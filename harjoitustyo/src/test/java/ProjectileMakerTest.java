@@ -54,6 +54,14 @@ public class ProjectileMakerTest {
         
     }
     @Test
+    public void cantShootWhenOutOfAmmo(){
+        assertTrue(maker.hasAmmo());
+        for(int i=0; i<50; i++){
+            maker.hasAmmo();
+        }
+        assertFalse(maker.hasAmmo());
+    }
+    @Test
     public void keyCodesCreateCorrectSpeeds(){
         Speed speed=new Speed(KeyCode.W);
         assertEquals(0.0,speed.getxSpeed(), 0.0);

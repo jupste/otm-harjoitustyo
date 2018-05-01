@@ -17,6 +17,10 @@ public class Player{
     private Rectangle avatar;
     private int score;
     
+    /**
+     * Constructor for player class. Sets the player in the middle of the board.
+     * @param name Name of player.
+     */
     public Player(String name) {
         this.name = name;
         this.score=0;

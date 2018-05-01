@@ -55,11 +55,11 @@ public class GameUpdate {
     public GameUpdate(ScreenLoader loader) {
         this.maker = new ProjectileMaker();
         this.enemies = new ArrayList<Enemy>();
-        this.powerUps= new ArrayList<PowerUp>();
+        this.powerUps = new ArrayList<PowerUp>();
         this.rng = new Random();
         this.controller = new KeyController();
         this.loader = loader;
-        this.rng=new Random();
+        this.rng = new Random();
 
     }
 
@@ -69,7 +69,9 @@ public class GameUpdate {
         });
         this.player = new Player(name);
         this.loader.getRoot().getChildren().add(player.getAvatar());
-        Idler idler=new Idler(player.getAvatar());
+        double x = rng.nextInt(50) * 20;
+        double y = rng.nextInt(50) * 20;
+        Idler idler = new Idler(player.getAvatar(), x, y);
         enemies.add(idler);
         this.loader.getRoot().getChildren().add(idler.getEnemy());
         this.timer = new AnimationTimer() {
@@ -88,7 +90,7 @@ public class GameUpdate {
     public void checkState() {
         ArrayList<Node> projectileIndex = new ArrayList<>();
         ArrayList<Enemy> enemyIndex = new ArrayList<>();
-        ArrayList<PowerUp> powIndex= new ArrayList<>();
+        ArrayList<PowerUp> powIndex = new ArrayList<>();
         for (Enemy e : enemies) {
             for (Node p : maker.getProjectiles()) {
                 if (e.getEnemy().getBoundsInParent().intersects(p.getBoundsInParent())) {
@@ -96,7 +98,7 @@ public class GameUpdate {
                     projectileIndex.add(p);
                     loader.getRoot().getChildren().remove(p);
                     loader.getRoot().getChildren().remove(e.getEnemy());
-                    this.player.setScore(this.player.getScore()+1);
+                    this.player.setScore(this.player.getScore() + 1);
                     loader.getScores().setText("Score: " + Integer.toString(this.player.getScore()));
                 }
             }
@@ -106,16 +108,16 @@ public class GameUpdate {
                 loader.getDbManager().insertIntoTable(player.getName(), player.getScore());
             }
         }
-        for(PowerUp pow: powerUps){
-            if(pow.getPowerUp().getBoundsInParent().intersects(player.getAvatar().getBoundsInParent())){
+        for (PowerUp pow : powerUps) {
+            if (pow.getPowerUp().getBoundsInParent().intersects(player.getAvatar().getBoundsInParent())) {
                 pow.powerUp(player, maker);
                 loader.getScores().setText("Score:  " + Integer.toString(this.player.getScore()));
-                loader.getAmmo().setText("Ammo: "+maker.getAmmo());
+                loader.getAmmo().setText("Ammo: " + maker.getAmmo());
                 powIndex.add(pow);
                 loader.getRoot().getChildren().remove(pow.getPowerUp());
             }
         }
-        for(PowerUp pow: powIndex){
+        for (PowerUp pow : powIndex) {
             powerUps.remove(pow);
         }
         for (Node p : projectileIndex) {
@@ -132,22 +134,26 @@ public class GameUpdate {
         ArrayList<Node> projectiles = maker.getProjectiles();
         ArrayList<Speed> speeds = maker.getSpeeds();
         if (r < 3 && enemies.size() <= 15) {
-            Idler idler = new Idler(player.getAvatar());
+            double x = rng.nextInt(50) * 20;
+            double y = rng.nextInt(50) * 20;
+            Idler idler = new Idler(player.getAvatar(), x, y);
             enemies.add(idler);
             loader.getRoot().getChildren().add(idler.getEnemy());
         }
         if (r > 3 && r < 5 && enemies.size() < 15) {
-            Drone drone = new Drone(player.getAvatar());
+            double x = rng.nextInt(50) * 20;
+            double y = rng.nextInt(50) * 20;
+            Drone drone = new Drone(player.getAvatar(), x, y);
             enemies.add(drone);
             loader.getRoot().getChildren().add(drone.getEnemy());
         }
-        if(r == 6){
-            ScorePowerUp bonus= new ScorePowerUp();
+        if (r == 6) {
+            ScorePowerUp bonus = new ScorePowerUp();
             powerUps.add(bonus);
             loader.getRoot().getChildren().add(bonus.getPowerUp());
         }
-        if(r== 7 || r==8){
-            AmmoPowerUp ammo= new AmmoPowerUp();
+        if (r == 7 || r == 8) {
+            AmmoPowerUp ammo = new AmmoPowerUp();
             powerUps.add(ammo);
             loader.getRoot().getChildren().add(ammo.getPowerUp());
         }
@@ -159,7 +165,7 @@ public class GameUpdate {
         }
         if (counter % 31 == 0) {
             for (Enemy e : enemies) {
-                int move=rng.nextInt(4);
+                int move = rng.nextInt(4);
                 e.move(move);
             }
         }
