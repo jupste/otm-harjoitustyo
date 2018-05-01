@@ -19,6 +19,10 @@ public class DatabaseManager {
     private Connection connection;
     private Statement statement;
     
+    /**
+     * Constructor of DatabaseManager class. A data access object used to keep track of scores.
+     * @param dest name of file to write
+     */
     public DatabaseManager(String dest) {
         this.connection = null;
         this.statement=null;
@@ -36,6 +40,12 @@ public class DatabaseManager {
             System.err.println(e.getClass().getName() + ": " + e.getMessage());
         }
     }
+
+    /**
+     * Method used to insert an entry to the table. If an entry already exists for player, it updates the score value if it higher than the one already in the table.
+     * @param name name of player
+     * @param score score of player
+     */
     public void insertIntoTable(String name, int score){
         try{
             statement= connection.createStatement();
@@ -51,6 +61,11 @@ public class DatabaseManager {
             System.err.println(e.getClass().getName() + ": " + e.getMessage());
         }
     }
+
+    /**
+     * Sorts the table by score and returns a list of entries.
+     * @return ObservableList that is used by Table object in ScreenLoader class.
+     */
     public ObservableList<EntryObject> getScores(){
         ObservableList<EntryObject> scores= FXCollections.observableArrayList();
         try{
@@ -67,6 +82,10 @@ public class DatabaseManager {
         }
         return scores;
     }
+
+    /**
+     * Clears the table from all entries.
+     */
     public void clearTable(){
         try{
             statement= connection.createStatement();

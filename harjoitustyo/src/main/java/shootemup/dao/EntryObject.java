@@ -12,7 +12,12 @@ package shootemup.dao;
 public class EntryObject {
     private String name;
     private int score;
-
+    
+    /**
+     * Constructor for EntryObject class. Used to display scores on highscore-table.
+     * @param name name of player
+     * @param score score of player
+     */
     public EntryObject(String name, int score) {
         this.name = name;
         this.score = score;
