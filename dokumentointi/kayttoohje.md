@@ -10,7 +10,6 @@ Ohjelma käynnistetään komennolla
 
 ## Pelin aloittaminen
 
-![aloitusruutu](https://github.com/jupste/otm-harjoitustyo/blob/master/dokumentointi/starting-screen.png){:height="500px" width="500åx"}
-
+![aloitusruutu](https://github.com/jupste/otm-harjoitustyo/blob/master/dokumentointi/starting-screen.png =500x500)
 
 
