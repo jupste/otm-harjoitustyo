@@ -5,10 +5,6 @@
  */
 package shootemup.gui;
 
-import static java.awt.SystemColor.text;
-import static java.lang.Integer.min;
-import java.util.ArrayList;
-import javafx.beans.property.ReadOnlyListWrapper;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -24,16 +20,11 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.BorderPane;
-import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
-import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
-import javafx.scene.shape.Rectangle;
 import javafx.stage.Stage;
-import shootemup.*;
 import shootemup.dao.DatabaseManager;
 import shootemup.dao.EntryObject;
-
 /**
  *
  * @author jussiste
@@ -64,11 +55,11 @@ public class ScreenLoader {
         instructions = new Button();
         exit = new Button();
         scores = new Label();
-        this.session=new GameUpdate(this);
+        this.session = new GameUpdate(this);
         this.stage = stage;
-        dbManager = new DatabaseManager("jdbc:sqlite:hiscoreTable.db");      
+        dbManager = new DatabaseManager("jdbc:sqlite:hiscoreTable.db");
     }
-    
+
     public Stage getStage() {
         return stage;
     }
@@ -138,7 +129,7 @@ public class ScreenLoader {
     public Parent createContent() {
         root = new Pane();
         root.setPrefSize(SIZE, SIZE);
-        ammo=new Label("Ammo: " + 50);
+        ammo = new Label("Ammo: " + 50);
         scores = new Label("Score: " + 0);
         ammo.relocate(900, 30);
         scores.relocate(900, 10);
@@ -195,7 +186,9 @@ public class ScreenLoader {
     public Parent instructionScreen() {
         borderRoot = new BorderPane();
         borderRoot.setPrefSize(SIZE, SIZE);
-        ImageView image= new ImageView(new Image("/images/gameplay.png"));
+        ImageView image = new ImageView(new Image("https://raw.githubusercontent.com/jupste/otm-harjoitustyo/master/harjoitustyo/images/gameplay.png"));
+        image.setFitHeight(800);
+        image.setFitWidth(800);
         exit = new Button("Exit");
         borderRoot.setCenter(exit);
         borderRoot.setRight(image);
