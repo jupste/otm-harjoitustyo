@@ -21,6 +21,8 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
@@ -193,8 +195,10 @@ public class ScreenLoader {
     public Parent instructionScreen() {
         borderRoot = new BorderPane();
         borderRoot.setPrefSize(SIZE, SIZE);
+        ImageView image= new ImageView(new Image("/images/gameplay.png"));
         exit = new Button("Exit");
         borderRoot.setCenter(exit);
+        borderRoot.setRight(image);
         return borderRoot;
     }
 }
