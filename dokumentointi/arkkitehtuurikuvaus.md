@@ -40,3 +40,7 @@ Varsinainen peli alkaa kun pelaaja painaa Start-nappia. Tällöin valikko muuttu
 Ohjelma käyttää SQLite kirjastoa tietojen pysyväistallennukseen. Tallennuksesta vastaa DatabaseManager niminen DAO-olento. Pelin loputtua DatabaseManager tallentaa pelaajan nimen ja pisteet hiscore taulukkoon. Mikäli pelaajan nimellä on jo tietue tietokannassa, päivitetään piste attribuuttiin uusi arvo, mikäli uusi arvo on vanhaa parempi. Käyttäjä voi myös tarkastella muiden pelaajien tuloksia päävalikosta painamalla "Hiscores"-nappia. Tällöin DataManager olio palauttaa SQL tiedostoon tallennetut tietueet ja ScreenLoader olio asettaa ne taulukkoon. "Clear"-nappia painaessa DatabaseManager tyhjentää tietokannan kaikista tietueista. 
 
 ![tallentaminen](https://github.com/jupste/otm-harjoitustyo/blob/master/dokumentointi/tallentaminen.png)
+
+### Tiedostot
+
+Sovellus tallentaa käyttäjien pisteitä SQLite tiedostoon nimeltä hiscoreTable.db. Tietokannassa on yksi taulu SCORES, jossa on kaksi attribuuttia, NAME ja SCORE. Tämän tietokannan lisäksi sovelluksesta löytyy tietokanta test.db, jota käytetään DAO-olion toimintaa käsittelevissä testeissä.  
