@@ -4,7 +4,7 @@
 ## Käyttöliittymä
 
 Ohjelman päämenu ladataan aina ohjelman käynnistyessä. Tässä näkymässä on kolme nappia, jotka kaikki luovat uuden 
-Scene-olion ja lataavat sen stageen. "Hiscores"-nappi vie käyttäjän hiscores taulukkoon, johon ladataan parhaiden pelaajien pisteet. "Instructions"-nappi puolestaan vie käyttäjän pelin käyttöohjeeseen. Näistä molemmista näkymistä voi palata päämenuun "Exit"-nappia painamalla. "Start the slaugter"-nappi korvaa päämenun napit tekstikentällä ja "READY"- napilla. Kun pelaaja on laittanut nimensä nimikenttään, voi hän aloittaa pelin painamalla "READY"-nappia. Kun peli alkaa stageen vaihdetaan uusi scene, jossa on pane-olento. Paneen sijoitetaan aluksi pelaajahahmo ja yksi vihollinen. Viholliset liikkuvat satunnaisesti ja pelaaja voi liikkua nuolinäppäimiä käyttäen ja ampua WASD näppäimillä.
+Scene-olion ja lataavat sen stageen. "Hiscores"-nappi vie käyttäjän hiscores taulukkoon, johon ladataan parhaiden pelaajien pisteet. "Instructions"-nappi puolestaan vie käyttäjän pelin käyttöohjeeseen. Näistä molemmista näkymistä voi palata päämenuun "Exit"-nappia painamalla. "Start the slaughter"-nappi korvaa päämenun napit tekstikentällä ja "READY"- napilla. Kun pelaaja on laittanut nimensä nimikenttään, voi hän aloittaa pelin painamalla "READY"-nappia. Kun peli alkaa stageen vaihdetaan uusi scene, jossa on pane-olento. Paneen sijoitetaan aluksi pelaajahahmo ja yksi vihollinen. Viholliset liikkuvat satunnaisesti ja pelaaja voi liikkua nuolinäppäimiä käyttäen ja ampua WASD näppäimillä.
 
 ## Sovelluslogiikka
 
@@ -34,3 +34,9 @@ Käyttöohjeen sisältävän sivun lataaminen tapahtuu hyvin pitkälti samalla p
 ![pelaaminen](https://github.com/jupste/otm-harjoitustyo/blob/master/dokumentointi/pelaaminen.png)
 
 Varsinainen peli alkaa kun pelaaja painaa Start-nappia. Tällöin valikko muuttuu siten, että siihen ilmestyy tekstikenttä sekä uusi Ready-nappula. Jos Ready-nappulaa painaa, ilman että tekstikentässä on tekstiä, näyttää se virheilmoituksen. Kun pelaaja painaa Ready-nappia ei-tyhjällä tekstikentällä, luo ScreenLoader-olio uuden peliä varten käytettävän Pane-olion ja siirtää ohjelman hallinnan GameUpdate-oliolle. Kun pelaaja painaa nuolinäppäintä, GameUpdaten KeyController-olio käsittelee sen siten, että pelaajan hahmo liikkuu oikeaan suuntaan. Jos pelaaja puolestaan painaa WASD-näppäintä, KeyController käskee ProjectileMakerin luomaan ammus, joka kulkee WASD näppäimen osoittamaan suuntaan.
+
+## Tietojen pysyväistallennus
+
+Ohjelma käyttää SQLite kirjastoa tietojen pysyväistallennukseen. Tallennuksesta vastaa DatabaseManager niminen DAO-olento. Pelin loputtua DatabaseManager tallentaa pelaajan nimen ja pisteet hiscore taulukkoon. Mikäli pelaajan nimellä on jo tietue tietokannassa, päivitetään piste attribuuttiin uusi arvo, mikäli uusi arvo on vanhaa parempi. Käyttäjä voi myös tarkastella muiden pelaajien tuloksia päävalikosta painamalla "Hiscores"-nappia. Tällöin DataManager olio palauttaa SQL tiedostoon tallennetut tietueet ja ScreenLoader olio asettaa ne taulukkoon. "Clear"-nappia painaessa DatabaseManager tyhjentää tietokannan kaikista tietueista. 
+
+![tallentaminen](https://github.com/jupste/otm-harjoitustyo/blob/master/dokumentointi/tallentaminen.png)
