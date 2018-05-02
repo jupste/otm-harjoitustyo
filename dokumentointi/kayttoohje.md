@@ -8,7 +8,9 @@ Ohjelma käynnistetään komennolla
 
 >java -jar ShootEmUp-1.1.jar
 
-## Pelin pelaaminen
+## Pelin aloittaminen
+
+![aloitusruutu](https://github.com/jupste/otm-harjoitustyo/blob/master/dokumentointi/starting-screen.png){:height="500px" width="500åx"}
 
 
 
