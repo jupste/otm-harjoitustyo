@@ -8,8 +8,8 @@ package shootemup.gui;
 import javafx.scene.Node;
 import javafx.scene.input.KeyCode;
 import javafx.scene.layout.Pane;
-import shootemup.domain.ProjectileMaker;
-import shootemup.domain.Speed;
+import shootemup.domain.Player;
+
 
 /**
  *
@@ -17,55 +17,46 @@ import shootemup.domain.Speed;
  */
 public class KeyController {
 
-    public void processInput(GameUpdate game, KeyCode key) {
-        Speed speed;
+    public void processInput(Player player, KeyCode key, Pane pane) {
         switch (key) {
             case UP:
-                if (game.getPlayer().getAvatar().getTranslateY() > 0) {
-                    game.getPlayer().getAvatar().setTranslateY(game.getPlayer().getAvatar().getTranslateY() - 20);
+                if (player.getAvatar().getTranslateY() > 0) {
+                    player.getAvatar().setTranslateY(player.getAvatar().getTranslateY() - 20);
                 }
                 break;
             case DOWN:
-                if (game.getPlayer().getAvatar().getTranslateY() < 1000) {
-                    game.getPlayer().getAvatar().setTranslateY(game.getPlayer().getAvatar().getTranslateY() + 20);
+                if (player.getAvatar().getTranslateY() < 1000) {
+                    player.getAvatar().setTranslateY(player.getAvatar().getTranslateY() + 20);
                 }
                 break;
             case RIGHT:
-                if (game.getPlayer().getAvatar().getTranslateX() < 1000) {
-                    game.getPlayer().getAvatar().setTranslateX(game.getPlayer().getAvatar().getTranslateX() + 20);
+                if (player.getAvatar().getTranslateX() < 1000) {
+                    player.getAvatar().setTranslateX(player.getAvatar().getTranslateX() + 20);
                 }
                 break;
             case LEFT:
-                if (game.getPlayer().getAvatar().getTranslateX() > 0) {
-                    game.getPlayer().getAvatar().setTranslateX(game.getPlayer().getAvatar().getTranslateX() - 20);
+                if (player.getAvatar().getTranslateX() > 0) {
+                    player.getAvatar().setTranslateX(player.getAvatar().getTranslateX() - 20);
                 }
                 break;
             case W:
-                if (game.getMaker().hasAmmo()) {
-                    speed = new Speed(key);
-                    game.getLoader().getRoot().getChildren().add(game.getMaker().initProjectile(game.getPlayer().getAvatar().getTranslateX(), game.getPlayer().getAvatar().getTranslateY(), speed));
-                    game.getLoader().getAmmo().setText("Ammo: "+game.getMaker().getAmmo());
+                if (player.getMaker().hasAmmo()) {
+                    pane.getChildren().add(player.getMaker().initProjectile(player.getAvatar().getTranslateX(), player.getAvatar().getTranslateY(), 0, -3));
                 }
                 break;
             case A:
-                if (game.getMaker().hasAmmo()) {
-                    speed = new Speed(key);
-                    game.getLoader().getRoot().getChildren().add(game.getMaker().initProjectile(game.getPlayer().getAvatar().getTranslateX(), game.getPlayer().getAvatar().getTranslateY(), speed));
-                    game.getLoader().getAmmo().setText("Ammo: "+game.getMaker().getAmmo());
+                if (player.getMaker().hasAmmo()) {
+                    pane.getChildren().add(player.getMaker().initProjectile(player.getAvatar().getTranslateX(), player.getAvatar().getTranslateY(), -3, 0));
                 }
                 break;
             case S:
-                if (game.getMaker().hasAmmo()) {
-                    speed = new Speed(key);
-                    game.getLoader().getRoot().getChildren().add(game.getMaker().initProjectile(game.getPlayer().getAvatar().getTranslateX(), game.getPlayer().getAvatar().getTranslateY(), speed));
-                    game.getLoader().getAmmo().setText("Ammo: "+game.getMaker().getAmmo());
+                if (player.getMaker().hasAmmo()) {
+                    pane.getChildren().add(player.getMaker().initProjectile(player.getAvatar().getTranslateX(), player.getAvatar().getTranslateY(), 0, 3));
                 }
                 break;
             case D:
-                if (game.getMaker().hasAmmo()) {
-                    speed = new Speed(key);
-                    game.getLoader().getRoot().getChildren().add(game.getMaker().initProjectile(game.getPlayer().getAvatar().getTranslateX(), game.getPlayer().getAvatar().getTranslateY(), speed));
-                    game.getLoader().getAmmo().setText("Ammo: "+game.getMaker().getAmmo());
+                if (player.getMaker().hasAmmo()) {
+                    pane.getChildren().add(player.getMaker().initProjectile(player.getAvatar().getTranslateX(), player.getAvatar().getTranslateY(), 3, 0));
                 }
                 break;
             default:

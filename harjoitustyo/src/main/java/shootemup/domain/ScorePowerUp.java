@@ -42,7 +42,7 @@ public class ScorePowerUp implements PowerUp {
     }
 
     @Override
-    public void powerUp(Player player, ProjectileMaker maker) {
+    public void powerUp(Player player) {
         player.setScore(player.getScore() + 10);
     }
 

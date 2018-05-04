@@ -17,5 +17,6 @@ Työaikakirjanpito
 |25.4.|3| PowerUp luokan luonti|
 |26.4.|3| Testien kirjoittaminen ja Javadocien luonti |
 |29.4.|1| Javadocien uudelleen luonti kun unohdin pushata ja vahingossa ylikirjoitin paikallisen tiedoston...|
-|1.5|1| Siirretty satunnaisuutta testien ulkopuolelle ja luotu uusia testejä|
-|Yhteensä |36| | 
+|1.5.|1| Siirretty satunnaisuutta testien ulkopuolelle ja luotu uusia testejä|
+|4.5.|2| Refaktorointia|
+|Yhteensä |38| | 

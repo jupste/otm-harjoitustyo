@@ -93,10 +93,9 @@ public class EntitiesTest {
         ScorePowerUp bonus = new ScorePowerUp();
         AmmoPowerUp ammo = new AmmoPowerUp();
         Player p = new Player("test");
-        ProjectileMaker maker = new ProjectileMaker();
-        bonus.powerUp(p, maker);
+        bonus.powerUp(p);
         assertEquals(10, p.getScore());
-        ammo.powerUp(p, maker);
-        assertEquals(100, maker.getAmmo());
+        ammo.powerUp(p);
+        assertEquals(100, p.getMaker().getAmmo());
     }
 }

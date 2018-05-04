@@ -15,6 +15,7 @@ import javafx.scene.shape.Rectangle;
 public class Player{
     private String name;
     private Rectangle avatar;
+    private ProjectileMaker maker;
     private int score;
     
     /**
@@ -24,9 +25,14 @@ public class Player{
     public Player(String name) {
         this.name = name;
         this.score=0;
+        this.maker=new ProjectileMaker();
         this.avatar= new Rectangle(20, 20 , Color.BLACK);
         avatar.setTranslateY(500);
         avatar.setTranslateX(500);
+    }
+
+    public ProjectileMaker getMaker() {
+        return maker;
     }
 
     public int getScore() {

@@ -10,17 +10,15 @@ import java.util.Random;
 import javafx.animation.AnimationTimer;
 import javafx.scene.Node;
 import javafx.scene.Scene;
-import javafx.scene.control.Label;
-import javafx.scene.layout.Pane;
 import shootemup.domain.AmmoPowerUp;
 import shootemup.domain.Drone;
 import shootemup.domain.Enemy;
 import shootemup.domain.Idler;
 import shootemup.domain.Player;
 import shootemup.domain.PowerUp;
+import shootemup.domain.Projectile;
 import shootemup.domain.ProjectileMaker;
 import shootemup.domain.ScorePowerUp;
-import shootemup.domain.Speed;
 import shootemup.gui.KeyController;
 import shootemup.gui.ScreenLoader;
 
@@ -60,14 +58,13 @@ public class GameUpdate {
         this.controller = new KeyController();
         this.loader = loader;
         this.rng = new Random();
-
     }
 
     public void startGame(String name) {
-        loader.getStage().getScene().setOnKeyPressed(e -> {
-            controller.processInput(this, e.getCode());
-        });
         this.player = new Player(name);
+        loader.getStage().getScene().setOnKeyPressed(e -> {
+            controller.processInput(this.player, e.getCode(), this.loader.getRoot());
+        });
         this.loader.getRoot().getChildren().add(player.getAvatar());
         double x = rng.nextInt(50) * 20;
         double y = rng.nextInt(50) * 20;
@@ -88,18 +85,17 @@ public class GameUpdate {
     }
 
     public void checkState() {
-        ArrayList<Node> projectileIndex = new ArrayList<>();
+        ArrayList<Projectile> projectileIndex = new ArrayList<>();
         ArrayList<Enemy> enemyIndex = new ArrayList<>();
         ArrayList<PowerUp> powIndex = new ArrayList<>();
         for (Enemy e : enemies) {
-            for (Node p : maker.getProjectiles()) {
-                if (e.getEnemy().getBoundsInParent().intersects(p.getBoundsInParent())) {
+            for (Projectile p : this.player.getMaker().getProjectiles()) {
+                if (e.getEnemy().getBoundsInParent().intersects(p.getProjectile().getBoundsInParent())) {
                     enemyIndex.add(e);
                     projectileIndex.add(p);
-                    loader.getRoot().getChildren().remove(p);
+                    loader.getRoot().getChildren().remove(p.getProjectile());
                     loader.getRoot().getChildren().remove(e.getEnemy());
                     this.player.setScore(this.player.getScore() + 1);
-                    loader.getScores().setText("Score: " + Integer.toString(this.player.getScore()));
                 }
             }
             if (e.getEnemy().getBoundsInParent().intersects(player.getAvatar().getBoundsInParent())) {
@@ -110,9 +106,8 @@ public class GameUpdate {
         }
         for (PowerUp pow : powerUps) {
             if (pow.getPowerUp().getBoundsInParent().intersects(player.getAvatar().getBoundsInParent())) {
-                pow.powerUp(player, maker);
-                loader.getScores().setText("Score:  " + Integer.toString(this.player.getScore()));
-                loader.getAmmo().setText("Ammo: " + maker.getAmmo());
+                pow.powerUp(player);
+
                 powIndex.add(pow);
                 loader.getRoot().getChildren().remove(pow.getPowerUp());
             }
@@ -120,8 +115,8 @@ public class GameUpdate {
         for (PowerUp pow : powIndex) {
             powerUps.remove(pow);
         }
-        for (Node p : projectileIndex) {
-            maker.removeProjectile(p);
+        for (Projectile p : projectileIndex) {
+            player.getMaker().removeProjectile(p);
         }
         for (Enemy enemy : enemyIndex) {
             enemies.remove(enemy);
@@ -131,8 +126,9 @@ public class GameUpdate {
     public void onUpdate() {
         int r = rng.nextInt(2000);
         counter++;
-        ArrayList<Node> projectiles = maker.getProjectiles();
-        ArrayList<Speed> speeds = maker.getSpeeds();
+        loader.getAmmo().setText("Ammo: " + player.getMaker().getAmmo());
+        loader.getScores().setText("Score:  " + Integer.toString(this.player.getScore()));
+        ArrayList<Projectile> projectiles = player.getMaker().getProjectiles();
         if (r < 3 && enemies.size() <= 15) {
             double x = rng.nextInt(50) * 20;
             double y = rng.nextInt(50) * 20;
@@ -158,10 +154,9 @@ public class GameUpdate {
             loader.getRoot().getChildren().add(ammo.getPowerUp());
         }
         for (int i = 0; i < projectiles.size(); i++) {
-            Node projectile = projectiles.get(i);
-            Speed speed = speeds.get(i);
-            projectile.setTranslateX(projectile.getTranslateX() + speed.getxSpeed());
-            projectile.setTranslateY(projectile.getTranslateY() + speed.getySpeed());
+            Node projectile = projectiles.get(i).getProjectile();
+            projectile.setTranslateX(projectile.getTranslateX() + projectiles.get(i).getxSpeed());
+            projectile.setTranslateY(projectile.getTranslateY() + projectiles.get(i).getySpeed());
         }
         if (counter % 31 == 0) {
             for (Enemy e : enemies) {

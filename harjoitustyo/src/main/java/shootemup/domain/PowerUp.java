@@ -18,6 +18,6 @@ public interface PowerUp {
      * @param player used by ScorePowerUp to increase score.
      * @param maker used by AmmoPowerUp to increase ammo.
      */
-    public void powerUp(Player player, ProjectileMaker maker);
+    public void powerUp(Player player);
     public Node getPowerUp();
 }

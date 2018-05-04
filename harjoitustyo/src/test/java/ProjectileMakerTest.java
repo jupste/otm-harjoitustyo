@@ -13,70 +13,50 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
+import shootemup.domain.Projectile;
 import shootemup.domain.ProjectileMaker;
-import shootemup.domain.Speed;
 
 /**
  *
  * @author jussiste
  */
 public class ProjectileMakerTest {
-    
+
     private Pane map;
     private ProjectileMaker maker;
-        
+
     @Before
     public void setUp() {
-        Pane map=new Pane();
+        Pane map = new Pane();
         map.setPrefSize(1000, 1000);
-        maker=new ProjectileMaker();
+        maker = new ProjectileMaker();
     }
-    
+
     @Test
-    public void constructorCreatesArrayLists(){
+    public void constructorCreatesArrayLists() {
         assertEquals(maker.getProjectiles().size(), 0);
-        assertEquals(maker.getSpeeds().size(), 0);
     }
+
     @Test
-    public void firingIncreasesLists(){
-        maker.initProjectile(0, 0, new Speed(KeyCode.W));
+    public void firingIncreasesLists() {
+        maker.initProjectile(0, 0, 0, 0);
         assertEquals(maker.getProjectiles().size(), 1);
-        assertEquals(maker.getSpeeds().size(), 1);
     }
+
     @Test
-    public void removingProjectilesRemovesFromBothLists(){
-        Node n=maker.initProjectile(0, 0, new Speed(KeyCode.W));
+    public void removingProjectilesRemovesFromList() {
+        Node n = maker.initProjectile(0, 0, 0, 0);
         assertEquals(maker.getProjectiles().size(), 1);
-        assertEquals(maker.getSpeeds().size(), 1);
-        maker.removeProjectile(n);
+        maker.removeProjectile(maker.getProjectiles().get(0));
         assertEquals(maker.getProjectiles().size(), 0);
-        assertEquals(maker.getSpeeds().size(), 0);
-        
     }
+
     @Test
-    public void cantShootWhenOutOfAmmo(){
+    public void cantShootWhenOutOfAmmo() {
         assertTrue(maker.hasAmmo());
-        for(int i=0; i<50; i++){
+        for (int i = 0; i < 50; i++) {
             maker.hasAmmo();
         }
         assertFalse(maker.hasAmmo());
     }
-    @Test
-    public void keyCodesCreateCorrectSpeeds(){
-        Speed speed=new Speed(KeyCode.W);
-        assertEquals(0.0,speed.getxSpeed(), 0.0);
-        assertEquals(-3.0, speed.getySpeed(), 0.0);
-        speed=new Speed(KeyCode.A);
-        assertEquals(-3.0, speed.getxSpeed(), 0.0);
-        assertEquals(0.0, speed.getySpeed(), 0.0);        
-        speed=new Speed(KeyCode.S);
-        assertEquals(0.0, speed.getxSpeed(), 0.0);
-        assertEquals(3.0, speed.getySpeed(), 0.0);
-        speed=new Speed(KeyCode.D);
-        assertEquals(3.0, speed.getxSpeed(), 0.0);
-        assertEquals(0.0, speed.getySpeed(), 0.0);
-        speed=new Speed(KeyCode.O);
-        assertEquals(0.0, speed.getxSpeed(), 0.0);
-    }
-    
 }

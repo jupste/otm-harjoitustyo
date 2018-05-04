@@ -35,8 +35,8 @@ public class AmmoPowerUp implements PowerUp {
     }
     
     @Override
-    public void powerUp(Player player, ProjectileMaker maker) {
-        maker.reload(50);
+    public void powerUp(Player player) {
+        player.getMaker().reload(50);
     }
 
     @Override
