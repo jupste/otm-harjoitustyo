@@ -19,7 +19,7 @@ import shootemup.domain.PowerUp;
 import shootemup.domain.Projectile;
 import shootemup.domain.ProjectileMaker;
 import shootemup.domain.ScorePowerUp;
-import shootemup.gui.KeyController;
+import shootemup.domain.KeyController;
 import shootemup.gui.ScreenLoader;
 
 /**
