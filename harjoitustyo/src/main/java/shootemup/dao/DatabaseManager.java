@@ -34,6 +34,7 @@ public class DatabaseManager {
         try {
             Class.forName("org.sqlite.JDBC");
             connection = DriverManager.getConnection(dest);
+            connection.setAutoCommit(false);
             statement = connection.createStatement();
             String insert = "CREATE TABLE IF NOT EXISTS SCORES " + "(NAME TEXT NOT NULL UNIQUE, SCORE INT NOT NULL);";
             statement.executeUpdate(insert);
@@ -59,6 +60,7 @@ public class DatabaseManager {
             Class.forName("org.sqlite.JDBC");
             connection = DriverManager.getConnection(destination);
             statement = connection.createStatement();
+            connection.setAutoCommit(false);
             String insert = "INSERT INTO SCORES(NAME, SCORE) \n"
                     + "SELECT +'" + name + "', " + score + " \n"
                     + "WHERE NOT EXISTS(SELECT * FROM SCORES WHERE NAME= '" + name + "');";
@@ -84,6 +86,7 @@ public class DatabaseManager {
         try {
             Class.forName("org.sqlite.JDBC");
             connection = DriverManager.getConnection(destination);
+            connection.setAutoCommit(false);
             statement = connection.createStatement();
             String insert = "SELECT * FROM SCORES ORDER BY SCORE DESC;";
             ResultSet results = statement.executeQuery(insert);
@@ -92,6 +95,7 @@ public class DatabaseManager {
                 int score = results.getInt("SCORE");
                 scores.add(new EntryObject(name, score));
             }
+            connection.commit();
             connection.close();
         } catch (Exception e) {
             System.err.println(e.getClass().getName() + ": " + e.getMessage());
@@ -105,8 +109,10 @@ public class DatabaseManager {
     public void clearTable() {
         try {
             Class.forName("org.sqlite.JDBC");
+            
             connection = DriverManager.getConnection(destination);
             statement = connection.createStatement();
+            connection.setAutoCommit(false);
             String insert = "DELETE FROM SCORES;";
             statement.executeUpdate(insert);
             statement.close();

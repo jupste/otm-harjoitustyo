@@ -19,4 +19,5 @@ Työaikakirjanpito
 |29.4.|1| Javadocien uudelleen luonti kun unohdin pushata ja vahingossa ylikirjoitin paikallisen tiedoston...|
 |1.5.|1| Siirretty satunnaisuutta testien ulkopuolelle ja luotu uusia testejä|
 |4.5.|2| Refaktorointia|
-|Yhteensä |38| | 
+|6.5.|3| Luotu uusi GameService luokka, siirretty pelilogiikka erilleen Käyttöliittymästä|
+|Yhteensä |41| | 
