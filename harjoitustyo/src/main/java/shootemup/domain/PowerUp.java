@@ -16,7 +16,6 @@ public interface PowerUp {
     /**
      * A method that determines what happens when player picks up a power up. ScorePowerUp increases score by 50, AmmoPowerUp increases available ammo.
      * @param player used by ScorePowerUp to increase score.
-     * @param maker used by AmmoPowerUp to increase ammo.
      */
     public void powerUp(Player player);
     public Node getPowerUp();

@@ -34,6 +34,10 @@ public class GameUpdate {
         this.loader = loader;
     }
 
+    /**
+     * Starts the game by initializing key code listener. Activates the AnimationTimer.
+     * @param name name of player passed down from ScreenLoader
+     */
     public void startGame(String name) {
         this.service = new GameService(name);
         loader.getStage().getScene().setOnKeyPressed(e -> {
@@ -55,6 +59,9 @@ public class GameUpdate {
         return controller;
     }
 
+    /**
+     * Method that checks the intersections of various objects. If player intersects with an enemy this method ends the game.
+     */
     public void checkState() {
         service.projectileIntersect();
         service.powerIntersect();
@@ -66,6 +73,9 @@ public class GameUpdate {
         }
     }
 
+    /**
+     * Method updates the contents of the screen every timer tick.
+     */
     public void onUpdate() {
         int r = rng.nextInt(2000);
         service.spawnEnemies(r);

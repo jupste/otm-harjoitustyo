@@ -25,6 +25,7 @@ import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import shootemup.dao.DatabaseManager;
 import shootemup.dao.EntryObject;
+
 /**
  *
  * @author jussiste
@@ -68,6 +69,13 @@ public class ScreenLoader {
         return scores;
     }
 
+    /**
+     * Sets up a Pane that contains the starting screen. Also sets up all
+     * listeners for menu swapping.
+     *
+     * @param stage the stage passed down from main
+     * @return a new BorderPane
+     */
     public Parent startingScreen(Stage stage) {
         borderRoot = new BorderPane();
         borderRoot.setPrefSize(SIZE, SIZE);
@@ -78,7 +86,6 @@ public class ScreenLoader {
         instructions = new Button("Instructions");
         buttons.getButtons().addAll(start, hiscores, instructions);
         borderRoot.setCenter(buttons);
-        ScreenLoader load = this;
 
         hiscores.setOnAction(new EventHandler<ActionEvent>() {
             @Override
@@ -91,12 +98,6 @@ public class ScreenLoader {
             @Override
             public void handle(ActionEvent event) {
                 stage.setScene(new Scene(instructionScreen()));
-                exit.setOnAction(new EventHandler<ActionEvent>() {
-                    @Override
-                    public void handle(ActionEvent event) {
-                        stage.setScene(new Scene(startingScreen(stage)));
-                    }
-                });
             }
         ;
         });
@@ -126,6 +127,12 @@ public class ScreenLoader {
         return borderRoot;
     }
 
+    /**
+     * Creates a new Pane that is used as the stage of the game. After this is
+     * used startingScreen gives control to GameUpdate.
+     *
+     * @return a new Pane
+     */
     public Parent createContent() {
         root = new Pane();
         root.setPrefSize(SIZE, SIZE);
@@ -141,6 +148,10 @@ public class ScreenLoader {
         return ammo;
     }
 
+    /**
+     * Changes the screen to hiscore screen. Hiscores are recovered by the DAO-object.
+     * @return
+     */
     public Parent hiscoresScreen() {
         borderRoot = new BorderPane();
         borderRoot.setPrefSize(SIZE, SIZE);
@@ -183,6 +194,11 @@ public class ScreenLoader {
         return root;
     }
 
+    /**
+     * Changes the menu to instruction screen.
+     *
+     * @return a new BorderPane
+     */
     public Parent instructionScreen() {
         borderRoot = new BorderPane();
         borderRoot.setPrefSize(SIZE, SIZE);
@@ -190,6 +206,12 @@ public class ScreenLoader {
         image.setFitHeight(800);
         image.setFitWidth(800);
         exit = new Button("Exit");
+        exit.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                stage.setScene(new Scene(startingScreen(stage)));
+            }
+        });
         borderRoot.setCenter(exit);
         borderRoot.setRight(image);
         return borderRoot;

@@ -17,6 +17,12 @@ import shootemup.domain.Player;
  */
 public class KeyController {
 
+    /**
+     * Moves the player and creates projectiles by key inputs.
+     * @param player player
+     * @param key key pressed
+     * @param pane pane
+     */
     public void processInput(Player player, KeyCode key, Pane pane) {
         switch (key) {
             case UP:

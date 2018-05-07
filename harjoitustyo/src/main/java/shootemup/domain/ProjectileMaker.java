@@ -53,7 +53,8 @@ public class ProjectileMaker {
      *
      * @param x player x-position
      * @param y player y-position
-     * @param speed vector of projectile
+     * @param xSpeed x-vector of projectile
+     * @param ySpeed y-vector of projectile
      * @return Circle to add to the board.
      */
     public Node initProjectile(double x, double y, double xSpeed, double ySpeed) {
@@ -74,7 +75,7 @@ public class ProjectileMaker {
      * Removes projectiles simultaneously from both arrays thus keeping the
      * order in place.
      *
-     * @param n
+     * @param p projectile to remove
      */
     public void removeProjectile(Projectile p) {
         projectiles.remove(projectiles.indexOf(p));

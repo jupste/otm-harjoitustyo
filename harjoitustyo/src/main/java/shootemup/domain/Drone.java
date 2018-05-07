@@ -23,6 +23,8 @@ public class Drone implements Enemy{
      /**
      * Constructor for Drone class. Creates an enemy and positions it to a random place on a board.
      * @param player used so that the enemy doesn't spawn directly on top of player.
+     * @param x x-coordinates
+     * @param y y-coordinates
      */
     public Drone(Node player, double x, double y) {
         this.rng=new Random();
