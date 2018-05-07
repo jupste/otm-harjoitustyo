@@ -20,4 +20,5 @@ Työaikakirjanpito
 |1.5.|1| Siirretty satunnaisuutta testien ulkopuolelle ja luotu uusia testejä|
 |4.5.|2| Refaktorointia|
 |6.5.|3| Luotu uusi GameService luokka, siirretty pelilogiikka erilleen Käyttöliittymästä|
-|Yhteensä |41| | 
+|7.5.|2| Luotu testit GameService luokkaan|
+|Yhteensä |43| | 

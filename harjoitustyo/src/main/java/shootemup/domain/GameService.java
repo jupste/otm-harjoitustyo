@@ -49,6 +49,10 @@ public class GameService {
         return copy;
     }
 
+    public void setCounter(long counter) {
+        this.counter = counter;
+    }
+
     public ArrayList<Node> getRemoval() {
         ArrayList<Node> copy = (ArrayList<Node>) removal.clone();
         removal.clear();
@@ -113,9 +117,7 @@ public class GameService {
     }
 
     public void startingConfig() {
-        double x = rng.nextInt(50) * 20;
-        double y = rng.nextInt(50) * 20;
-        Idler idler = new Idler(player.getAvatar(), x, y);
+        Idler idler = new Idler(player.getAvatar(), 500, 300);
         enemies.add(idler);
         insert.add(idler.getEnemy());
     }

@@ -5,21 +5,10 @@
  */
 package shootemup.gui;
 
-import java.util.ArrayList;
 import java.util.Random;
 import javafx.animation.AnimationTimer;
-import javafx.scene.Node;
 import javafx.scene.Scene;
-import shootemup.domain.AmmoPowerUp;
-import shootemup.domain.Drone;
-import shootemup.domain.Enemy;
 import shootemup.domain.GameService;
-import shootemup.domain.Idler;
-import shootemup.domain.Player;
-import shootemup.domain.PowerUp;
-import shootemup.domain.Projectile;
-import shootemup.domain.ProjectileMaker;
-import shootemup.domain.ScorePowerUp;
 import shootemup.domain.KeyController;
 import shootemup.gui.ScreenLoader;
 
