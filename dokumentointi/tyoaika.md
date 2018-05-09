@@ -21,4 +21,5 @@ Työaikakirjanpito
 |4.5.|2| Refaktorointia|
 |6.5.|3| Luotu uusi GameService luokka, siirretty pelilogiikka erilleen Käyttöliittymästä|
 |7.5.|2| Luotu testit GameService luokkaan|
-|Yhteensä |43| | 
+|9.5.|3| Dokumenttien viimeistelyä|
+|Yhteensä |46| | 

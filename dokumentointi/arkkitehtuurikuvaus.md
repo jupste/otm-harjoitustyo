@@ -12,7 +12,7 @@ Ohjelman osien suhdetta kuvaava luokkakaavio:
 
 ![luokkakaavio](https://github.com/jupste/otm-harjoitustyo/blob/master/dokumentointi/luokkakaavio.png)
 
-Peli muodostuu pitkälti ScreenLoader ja GameUpdate olioiden varaan. ScreenLoader vastaa menujen vaihdoista ja pelialustan staattisista elementeistä kun taas GameUpdate-olio vastaa pelialustan elementtien liikkeistä. GameUpdate olennon kautta tapahtuu myös kaikki näppäimistökomennot. Molemmilla olioilla on pääsy samaan DatabaseManager-olioon, joka vastaa pelin tulosten tallentamisesta. 
+Peli muodostuu pitkälti ScreenLoader ja GameUpdate olioiden varaan. ScreenLoader vastaa menujen vaihdoista ja pelialustan staattisista elementeistä kun taas GameUpdate-olio vastaa pelialustan päivittämisestä. GameUpdate olennon kautta tapahtuu myös kaikki näppäimistökomennot. ScreenLoader olio on pääsy DatabaseManager-olioon, joka vastaa pelin tulosten tallentamisesta. GameService olio vastaa kaikkien pelillä olevien kappaleiden paikoista, joita se muuttaa GameUpdate luokan käskyistä, joka välittää tiedot ScreenLoader oliolle mikä muuttaa kappaleiden paikkoja Käyttöliittymässä. 
 ## Päätoiminnalisuudet
 
 Seuraavaksi kuvataan sovelluksen keskeisten toimintojen päätoiminnalisuus sekvenssikaavioilla.

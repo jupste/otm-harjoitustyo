@@ -3,8 +3,10 @@ Pelissä pelaaja liikuttaa mustaa neliötä nuolinäppäimillä. Pelaaja voi kä
 
 ## Releaset
 [Viikko 5](https://github.com/jupste/otm-harjoitustyo/releases/tag/viikko5)
+
 [Viikko 6](https://github.com/jupste/otm-harjoitustyo/releases/tag/viikko6)
 
+[Lopullinen release](https://github.com/jupste/otm-harjoitustyo/releases/tag/viikko6)
 ## Dokumentointi
 
 [Vaatimusmäärittely](https://github.com/jupste/otm-harjoitustyo/blob/master/dokumentointi/vaatimusmaarittely.md)
