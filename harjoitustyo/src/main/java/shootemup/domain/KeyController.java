@@ -5,10 +5,8 @@
  */
 package shootemup.domain;
 
-import javafx.scene.Node;
 import javafx.scene.input.KeyCode;
 import javafx.scene.layout.Pane;
-import shootemup.domain.Player;
 
 
 /**

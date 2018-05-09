@@ -150,7 +150,7 @@ public class ScreenLoader {
 
     /**
      * Changes the screen to hiscore screen. Hiscores are recovered by the DAO-object.
-     * @return
+     * @return a new BorderPane
      */
     public Parent hiscoresScreen() {
         borderRoot = new BorderPane();

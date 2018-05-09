@@ -6,8 +6,6 @@ package shootemup.dao;
  * and open the template in the editor.
  */
 import java.sql.*;
-import java.util.ArrayList;
-import javafx.beans.property.ReadOnlyListWrapper;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 

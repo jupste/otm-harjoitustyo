@@ -9,8 +9,6 @@ import java.util.ArrayList;
 import java.util.Random;
 import javafx.scene.Node;
 import javafx.scene.shape.Circle;
-import shootemup.gui.GameUpdate;
-
 /**
  *
  * @author jussiste
@@ -86,7 +84,6 @@ public class GameService {
     public Player getPlayer() {
         return player;
     }
-
     /**
      * Checks if player and any enemy intersect.
      * @return true if intersect, otherwise false

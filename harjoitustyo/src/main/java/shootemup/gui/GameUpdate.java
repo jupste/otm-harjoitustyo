@@ -10,7 +10,6 @@ import javafx.animation.AnimationTimer;
 import javafx.scene.Scene;
 import shootemup.domain.GameService;
 import shootemup.domain.KeyController;
-import shootemup.gui.ScreenLoader;
 
 /**
  *
