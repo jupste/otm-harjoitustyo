@@ -6,7 +6,7 @@ Pelissä pelaaja liikuttaa mustaa neliötä nuolinäppäimillä. Pelaaja voi kä
 
 [Viikko 6](https://github.com/jupste/otm-harjoitustyo/releases/tag/viikko6)
 
-[Lopullinen release](https://github.com/jupste/otm-harjoitustyo/releases/tag/viikko6)
+[Lopullinen release](https://github.com/jupste/otm-harjoitustyo/releases/tag/viikko7)
 ## Dokumentointi
 
 [Vaatimusmäärittely](https://github.com/jupste/otm-harjoitustyo/blob/master/dokumentointi/vaatimusmaarittely.md)
