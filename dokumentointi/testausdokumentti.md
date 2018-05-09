@@ -14,7 +14,8 @@ DAO-luokan oikeellisuutta testataan DataAccessObjectTest testiluokalla. Tätä t
 
 ### Testauskattavuus
 
-![jacoco](https://github.com/jupste/otm-harjoitustyo/tree/master/dokumentointi/jacoco.png)
+![jacoco](https://raw.githubusercontent.com/jupste/otm-harjoitustyo/master/dokumentointi/jacoco.png)
+
 Käyttöliittymää lukuunottamatta sovelluksen rivikattavuus on 87.5% ja haarakattavuus 88.0 %. Puuttellinen haarakattavuus johtuu lähinnä vihollisten liikkumista koskevista case-switch rakenteista. Testaamatta jäi lähinnä tilanteet, joissa vihollinen yrittää liikkua kentän ulkopuolelle. Puuttellinen rivikattavuus puolestaan tulee DAO-olion try-catch rakenteista. DAO-olennon rakenne on tehty siten, että tällaisia poikkeuksia ei esiinny eli ohjelma ei normaalitilanteessa päädy catch rakenteeseen. 
 
 ### Järjestelmätestaus
