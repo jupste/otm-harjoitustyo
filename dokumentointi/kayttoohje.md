@@ -1,12 +1,12 @@
 # Käyttöohje
 
-Lataa tiedosto [ShootEmUp](https://github.com/jupste/otm-harjoitustyo/releases/tag/viikko6)
+Lataa tiedosto [ShootEmUp](https://github.com/jupste/otm-harjoitustyo/releases/tag/viikko7)
 
 ## Ohjelman käynnistäminen
 
 Ohjelma käynnistetään komennolla
 
->java -jar ShootEmUp-1.1.jar
+>java -jar ShootEmUp-final.jar
 
 ## Alkuruudun toiminta
 
